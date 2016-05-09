@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router-deprecated';
 
 @Component({
@@ -8,4 +8,6 @@ import { ROUTER_DIRECTIVES } from '@angular/router-deprecated';
 	directives: [ROUTER_DIRECTIVES]
 })
 
-export class SidebarComponent { }
+export class SidebarComponent {
+	public active: Array = [];
+}

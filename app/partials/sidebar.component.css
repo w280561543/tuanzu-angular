@@ -196,8 +196,8 @@
 }
 
 .navigation li > .has-ul:after {
-	content: "\e9c7";
-	font-family: "icomoon";
+	content: "\f105";
+	font-family: "FontAwesome";
 	font-size: 16px;
 	display: block;
 	position: absolute;
