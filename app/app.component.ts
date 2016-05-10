@@ -5,7 +5,7 @@ import { DashboardComponent } from './dashboard.component';
 import { LoginComponent } from './auth/login.component';
 
 @Component({
-    selector: 'app',
+    selector: 'm-app',
     templateUrl: 'app/app.component.html',
 	styleUrls: ['app/app.component.css'],
 	directives: [ROUTER_DIRECTIVES]
