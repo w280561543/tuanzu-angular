@@ -22,8 +22,8 @@
 				<ul class="navigation navigation-main navigation-accordion">
 					<li class="navigation-header"><span>基本管理</span> <i class="fa fa-fw fa-ellipsis-h" title="基本管理"></i></li>
 					<li><a [routerLink]="['Dashboard']"><i class="fa fa-fw fa-home"></i> <span>首页</span></a></li>
-					<li (click)="active[0]=!active[0]" [class.active]="active[0]">
-						<a href="javascript:void(0);" class="has-ul"><i class="fa fa-fw fa-home"></i> <span>房屋管理</span></a>
+					<li [class.active]="active[0]">
+						<a href="javascript:void(0);" class="has-ul" (click)="active[0]=!active[0]"><i class="fa fa-fw fa-home"></i> <span>房屋管理</span></a>
 						<ul class="hidden-ul" [style.display]="active[0] ? 'block' : 'none'">
 							<li><a href="javascript:void(0);">小区管理</a></li>
 							<li><a href="javascript:void(0);">管理费</a></li>
@@ -33,8 +33,8 @@
 							<li><a href="javascript:void(0);">租金账单</a></li>
 						</ul>
 					</li>
-					<li (click)="active[1]=!active[1]" [class.active]="active[1]">
-						<a href="javascript:void(0);" class="has-ul"><i class="fa fa-fw fa-home"></i> <span>租房管理</span></a>
+					<li [class.active]="active[1]">
+						<a href="javascript:void(0);" class="has-ul" (click)="active[1]=!active[1]"><i class="fa fa-fw fa-home"></i> <span>租房管理</span></a>
 						<ul class="hidden-ul" [style.display]="active[1] ? 'block' : 'none'">
 							<li><a href="javascript:void(0);">看房记录</a></li>
 							<li><a href="javascript:void(0);">预约看房</a></li>
@@ -43,8 +43,8 @@
 							<li><a href="javascript:void(0);">租金账单</a></li>
 						</ul>
 					</li>
-					<li (click)="active[2]=!active[2]" [class.active]="active[2]">
-						<a href="javascript:void(0);" class="has-ul"><i class="fa fa-fw fa-home"></i> <span>会员管理</span></a>
+					<li [class.active]="active[2]">
+						<a href="javascript:void(0);" class="has-ul" (click)="active[2]=!active[2]"><i class="fa fa-fw fa-home"></i> <span>会员管理</span></a>
 						<ul class="hidden-ul" [style.display]="active[2] ? 'block' : 'none'">
 							<li><a href="javascript:void(0);">会员</a></li>
 							<li class="navigation-divider"></li>
