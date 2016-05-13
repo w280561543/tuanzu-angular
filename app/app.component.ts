@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouteConfig, ROUTER_DIRECTIVES } from '@angular/router-deprecated';
 
 import { DashboardComponent } from './dashboard.component';
@@ -6,8 +6,7 @@ import { LoginComponent } from './auth/login.component';
 
 @Component({
     selector: 'm-app',
-    templateUrl: 'app/app.component.html',
-	styleUrls: ['app/app.component.css'],
+    template: '<router-outlet></router-outlet>',
 	directives: [ROUTER_DIRECTIVES]
 })
 
@@ -16,5 +15,5 @@ import { LoginComponent } from './auth/login.component';
 	{ path: '/login', name: 'Login', component: LoginComponent }
 ])
 
-export class AppComponent implements OnInit{
+export class AppComponent {
 }

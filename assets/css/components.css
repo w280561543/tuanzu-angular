@@ -1,18 +1,16 @@
-.page-container {
+.flex-container {
 	position: relative;
 }
 
+.flex-grow-1 {
+	flex-grow: 1;
+	/*overflow-x: hidden;*/
+	/*overflow-y: auto;*/
+}
+
 @media (min-width: 769px) {
-	.page-container {
+	.flex-container {
 		width: 100%;
-		display: table;
-		table-layout: fixed
-	}
-	.page-content {
-		display: table-row;
-	}
-	.content-wrapper {
-		display: table-cell;
-		vertical-align: top;
+		display: flex;
 	}
 }

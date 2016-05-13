@@ -3,14 +3,14 @@
 	color: #fff;
 	position: relative;
 	width: 100%;
-	display: none
+	display: none;
 }
 
 @media (min-width: 769px) {
 	.sidebar {
-		display: table-cell;
+		display: block;
 		vertical-align: top;
-		width: 260px
+		width: 260px;
 	}
 }
 
@@ -25,16 +25,6 @@
 .sidebar-opposite {
 	display: none;
 	z-index: 97
-}
-
-.sidebar + .sidebar {
-	border-left: 1px solid rgba(255, 255, 255, .1)
-}
-
-@media (min-width: 769px) {
-	.sidebar-opposite-visible .sidebar-opposite {
-		display: table-cell
-	}
 }
 
 .sidebar-content {
