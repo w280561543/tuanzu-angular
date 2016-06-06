@@ -25,6 +25,11 @@ a:focus {
 	background-color: transparent;
 }
 
+.btn,
+.panel {
+	border-radius: 0;
+}
+
 
 /* reset bootstrap end */
 

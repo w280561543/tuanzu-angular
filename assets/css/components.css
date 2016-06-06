@@ -8,6 +8,10 @@
 	/*overflow-y: auto;*/
 }
 
+.flex-content {
+	padding: 0 10px 60px;
+}
+
 @media (min-width: 769px) {
 	.flex-container {
 		width: 100%;
