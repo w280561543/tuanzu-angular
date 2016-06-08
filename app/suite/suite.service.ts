@@ -5,7 +5,11 @@ import { Http, Response } from '@angular/http';
 export class SuiteService {
 	private suitesUrl = '127.0.0.1:8080/suite';
 
-	public constructor(private http: Http) { }
+	private http;
+
+	public constructor() {
+		this.http = new Http();
+	}
 
 	public getSuites() {
 		return this.http.get(this.suitesUrl).map(this.extractData).catch(this.handleError);

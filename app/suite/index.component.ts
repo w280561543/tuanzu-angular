@@ -14,10 +14,13 @@ export namespace Suite {
 	})
 
 	export class IndexComponent implements OnInit {
+		public suites = [];
+		public errorMessage: string;
+		
 		public constructor(private suiteService: SuiteService) {}
 		
 		public ngOnInit() {
-			console.log(this.suiteService);
+			this.suiteService.getSuites();
 		}
 	}
 
