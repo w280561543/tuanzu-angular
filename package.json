@@ -35,7 +35,7 @@
 	    "@angular/router-deprecated":  "2.0.0-rc.1",
 	    "@angular/upgrade":  "2.0.0-rc.1",
 
-		"systemjs": "^0.19.28",
+		"systemjs": "^0.19.30",
 		"core-js": "^2.4.0",
 	    "reflect-metadata": "^0.1.3",
 	    "rxjs": "5.0.0-beta.6",
@@ -49,11 +49,11 @@
 		"concurrently": "^2.0.0",
 	    "lite-server": "^2.2.0",
 	    "typescript": "^1.8.10",
-	    "typings": "^1.0.4",
+	    "typings": "^1.0.5",
 	
 	    "canonical-path": "0.0.2",
 	    "http-server": "^0.9.0",
-	    "tslint": "^3.7.4",
+	    "tslint": "^3.11.0",
 	    "lodash": "^4.11.1",
 	    "jasmine-core": "~2.4.1",
 	    "karma": "^0.13.22",
