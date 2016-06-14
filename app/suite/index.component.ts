@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Router }            from '@angular/router-deprecated';
 
 import { NavbarComponent }  from 'app/partials/navbar.component';
 import { SidebarComponent } from 'app/partials/sidebar.component';
 
+import { Suite } 		from './suite';
 import { SuiteService } from './suite.service';
 
 export namespace Suite {
@@ -14,14 +16,21 @@ export namespace Suite {
 	})
 
 	export class IndexComponent implements OnInit {
-		public suites = [];
-		public errorMessage: string;
-		
-		public constructor(private suiteService: SuiteService) {}
-		
+		public data: any;
+		public error: any;
+
+		public constructor(
+			private _router: Router, 
+			private _suiteService: SuiteService
+		) { }
+
 		public ngOnInit() {
-			this.suiteService.getSuites();
+			this.getSuites();
+		}
+
+		public getSuites() {
+			this._suiteService
+				.getSuites();
 		}
 	}
-
 }
