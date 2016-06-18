@@ -1,26 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-import { Router }            from '@angular/router-deprecated';
+import { NgFor } from '@angular/common';
 
 import { NavbarComponent }  from 'app/partials/navbar.component';
 import { SidebarComponent } from 'app/partials/sidebar.component';
 
-import { Suite } 		from './suite';
 import { SuiteService } from './suite.service';
 
 export namespace Suite {
 	@Component({
-	    selector: 'm-suite-index',
+	    selector: 'suite-index',
 	    templateUrl: 'app/suite/index.component.html',
-	    directives:[NavbarComponent, SidebarComponent],
+	    directives:[
+	    	NgFor,
+
+	    	NavbarComponent,
+	    	SidebarComponent
+	    ],
 	    providers: [SuiteService]
 	})
 
 	export class IndexComponent implements OnInit {
-		public data: any;
+		public suites: Array;
 		public error: any;
 
-		public constructor(
-			private _router: Router, 
+		public constructor( 
 			private _suiteService: SuiteService
 		) { }
 
@@ -30,7 +33,9 @@ export namespace Suite {
 
 		public getSuites() {
 			this._suiteService
-				.getSuites();
+				.getSuites()
+				.then(response => this.suites = response.json()._embedded.suite)
+				.catch(error => this.error = error);
 		}
 	}
 }
