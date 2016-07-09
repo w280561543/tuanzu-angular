@@ -8,33 +8,37 @@ import { SuiteService } from './suite.service';
 
 export namespace Suite {
 	@Component({
-	    selector: 'suite-index',
-	    templateUrl: 'app/suite/index.component.html',
-	    directives:[
-	    	NgFor,
+		selector: 'suite-index',
+		templateUrl: 'app/suite/index.component.html',
+		directives: [
+			NgFor,
 
-	    	NavbarComponent,
-	    	SidebarComponent
-	    ],
-	    providers: [SuiteService]
+			NavbarComponent,
+			SidebarComponent
+		],
+		providers: [SuiteService]
 	})
 
 	export class IndexComponent implements OnInit {
-		public suites: Array;
+		public data = {
+			"_embedded": {},
+			"_links": {},
+			"page": {}
+		};
 		public error: any;
 
-		public constructor( 
+		public constructor(
 			private _suiteService: SuiteService
-		) { }
+		) {}
 
 		public ngOnInit() {
-			this.getSuites();
+			this.getData();
 		}
 
-		public getSuites() {
+		public getData() {
 			this._suiteService
-				.getSuites()
-				.then(response => this.suites = response.json()._embedded.suite)
+				.getData()
+				.then(response => this.data = response.json())
 				.catch(error => this.error = error);
 		}
 	}
