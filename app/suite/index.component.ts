@@ -4,6 +4,8 @@ import { NgFor } from '@angular/common';
 import { NavbarComponent }  from 'app/partials/navbar.component';
 import { SidebarComponent } from 'app/partials/sidebar.component';
 
+import { PaginationDirectives } from 'app/common/pagination';
+
 import { SuiteService } from './suite.service';
 
 export namespace Suite {
@@ -14,7 +16,9 @@ export namespace Suite {
 			NgFor,
 
 			NavbarComponent,
-			SidebarComponent
+			SidebarComponent,
+			
+			PaginationDirectives
 		],
 		providers: [SuiteService]
 	})
