@@ -12,7 +12,6 @@ const appRoutes: Routes = [
 		path: 'dashboard',
 		component: DashboardComponent
 	}
-	
 ];
 
 export const routing = RouterModule.forRoot(appRoutes);

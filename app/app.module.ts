@@ -18,6 +18,7 @@ import { HousingModule } from './housing/housing';
 	declarations: [
 		AppComponent,
 		DashboardComponent
+
 	],
 	bootstrap: [AppComponent]
 })
