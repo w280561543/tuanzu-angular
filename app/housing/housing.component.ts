@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { HousingService } from 'app/housing/housing.service';
+import { HousingService } from './housing.service';
 
 @Component({
 	selector: 'housing',
@@ -17,8 +17,10 @@ export class HousingComponent implements OnInit {
 	) {}
 	
 	public ngOnInit() {
+		/*
 		this.housingService
 			.getHousing()
 			.then(data => [this.data = data, console.log(data)]);
+		*/
 	}
 }

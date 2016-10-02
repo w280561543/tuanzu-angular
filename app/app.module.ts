@@ -1,26 +1,23 @@
 import { NgModule }       from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
-import { HttpModule }     from '@angular/http';
 
-import { AppComponent } from 'app/app.component';
-import { routing }      from 'app/app.routing';
+import { AppComponent } from './app.component';
+import { routing }      from './app.routing';
 
-import { DashboardComponent } from 'app/dashboard/dashboard.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
-import { HousingComponent } from 'app/housing/housing.component';
+import { HousingModule } from './housing/housing';
 
 @NgModule({
 	imports: [
 		BrowserModule,
-		HttpModule,
+		routing,
 
-		routing
+		HousingModule
 	],
 	declarations: [
 		AppComponent,
-		DashboardComponent,
-
-		HousingComponent
+		DashboardComponent
 	],
 	bootstrap: [AppComponent]
 })
