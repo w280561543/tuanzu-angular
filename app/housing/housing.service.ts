@@ -1,5 +1,5 @@
-import { Injectable }    from '@angular/core';
-import { Http } from '@angular/http';
+import { Injectable } from '@angular/core';
+import { Http }       from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
@@ -8,11 +8,17 @@ export class HousingService {
 
 	public constructor(private http: Http) {}
 
-	public getHousing() {
+	public getAll() {
+		/*
 		return this.http.get('http://127.0.0.1:8080/suite?page=0&size=20')
 			.toPromise()
 			.then(response => response.json())
 			.catch(this.handleError);
+		*/
+	}
+
+	public getId(id: number) {
+		console.log(id);
 	}
 	
 	private handleError(error: any) {
