@@ -1,6 +1,7 @@
+import { ModuleWithProviders }  from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { DashboardComponent }  from 'app/dashboard/dashboard.component';
+import { DashboardComponent }  from './dashboard/dashboard.component';
 
 const appRoutes: Routes = [
 	{
@@ -14,4 +15,4 @@ const appRoutes: Routes = [
 	}
 ];
 
-export const routing = RouterModule.forRoot(appRoutes);
+export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);

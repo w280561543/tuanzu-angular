@@ -12,14 +12,14 @@ import { HousingModule } from './housing/housing';
 	imports: [
 		BrowserModule,
 		routing,
-
+		
 		HousingModule
 	],
 	declarations: [
 		AppComponent,
 		DashboardComponent
-
 	],
 	bootstrap: [AppComponent]
 })
+
 export class AppModule { }
