@@ -4,7 +4,7 @@ import { HousingService } from './housing.service';
 
 @Component({
 	selector: 'housing',
-	templateUrl: 'app/housing/housing.component.html',
+	templateUrl: 'app/module/housing/housing.component.html',
 	providers: [HousingService]
 })
 
