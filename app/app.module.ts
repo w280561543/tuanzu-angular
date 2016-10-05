@@ -1,12 +1,13 @@
 import { NgModule }       from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
 
-import { AppComponent } from './app.component';
-import { routing }      from './app.routing';
+import { AppComponent }        from './app.component';
+import { routing, 
+		 appRoutingProviders } from './app.routing';
 
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { LoginComponent }     from './auth/login.component';
 
-import { HousingModule } from './housing/housing';
+import { HousingModule } from './module/housing/housing';
 
 @NgModule({
 	imports: [
@@ -17,7 +18,10 @@ import { HousingModule } from './housing/housing';
 	],
 	declarations: [
 		AppComponent,
-		DashboardComponent
+		LoginComponent
+	],
+	providers: [
+		...appRoutingProviders
 	],
 	bootstrap: [AppComponent]
 })
