@@ -1,5 +1,6 @@
-import { NgModule }       from '@angular/core';
-import { BrowserModule }  from '@angular/platform-browser';
+import { NgModule }      from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule }   from '@angular/forms';
 
 import { AppComponent }        from './app.component';
 import { routing, 
@@ -12,6 +13,7 @@ import { HousingModule } from './module/housing/housing';
 @NgModule({
 	imports: [
 		BrowserModule,
+		FormsModule,
 		routing,
 		
 		HousingModule

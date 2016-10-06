@@ -6,15 +6,8 @@ import { Router,
 import { AuthService } from './auth.service';
 
 @Component({
-	template: 
-	`
-		<h2>Login</h2>
-		<p>{{ message }}</p>
-		<p>
-			<button (click)="login()"  *ngIf="!authService.isLoggedIn">Login</button>
-			<button (click)="logout()" *ngIf="authService.isLoggedIn">Logout</button>
-		</p>
-	`
+	selector: 'login',
+	templateUrl: 'app/auth/login.component.html'
 })
 
 export class LoginComponent {
