@@ -3,8 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { HousingService } from './housing.service';
 
 @Component({
+	moduleId: module.id,
 	selector: 'housing',
-	templateUrl: 'app/module/housing/housing.component.html',
+	templateUrl: 'housing.component.html',
 	providers: [HousingService]
 })
 

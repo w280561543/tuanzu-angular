@@ -6,8 +6,9 @@ import { Router,
 import { AuthService } from './auth.service';
 
 @Component({
+	moduleId: module.id,
 	selector: 'login',
-	templateUrl: 'app/auth/login.component.html'
+	templateUrl: 'login.component.html'
 })
 
 export class LoginComponent {
