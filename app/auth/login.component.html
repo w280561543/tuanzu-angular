@@ -1,30 +1,30 @@
-<div class="container">
-	<form class="bg-faded m-x-auto m-t-3 p-t-1 p-r-2 p-b-2 p-l-2" style="width: 45%;">
+<div class="container-fluid">
+	<form class="bg-faded m-x-auto m-t-3 p-t-1 p-r-2 p-b-2 p-l-2" style="width: 40%;" (ngSubmit)="onSubmit()" #loginFrom="ngForm">
 		<h2 class="text-xs-center">登陆</h2>
-
-		<fieldset class="form-group">
-			<label>账号：</label>
-			<input type="text" class="form-control" required placeholder="账号" />
-		</fieldset>
-
-		<fieldset class="form-group">
-			<label>密码：</label>
-			<input type="password" class="form-control" required placeholder="密码" />
-		</fieldset>
+		<!--<div class="alert alert-danger">登陆失败，邮箱或密码错误!</div>-->
 		
 		<fieldset class="form-group">
+			<label>邮箱<small class="text-muted text-warning">(*必填)</small>：</label>
+			<input type="text" name="email" class="form-control" placeholder="邮箱" required pattern="^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$" [(ngModel)]="model.email"/>
+		</fieldset>
+
+		<fieldset class="form-group" [class.has-warning]="!model.password || !password.valid">
+			<label>密码<small class="text-muted text-warning">(*必填)</small>：</label>
+			<input type="password" name="password" class="form-control" placeholder="密码" required minlength="6" [(ngModel)]="model.password" [class.form-control-warning]="!password.valid" #password="ngModel"/>
+		</fieldset>
+		
+		<!--<fieldset class="form-group">
 			<label>验证码：</label>
 			<div class="row">
 				<div class="col-sm-12 col-md-4">
 					图片
 				</div>
 				<div class="col-sm-12 col-md-8">
-					<input type="password" class="form-control" placeholder="验证码" />
+					<input type="text" name="identifying-code" class="form-control" placeholder="验证码"/>
 				</div>
 			</div>
-		</fieldset>
+		</fieldset>-->
 
-		<button class="btn btn-primary btn-block" (click)="login()"  *ngIf="!authService.isLoggedIn">登陆</button>
-		<!--<button (click)="logout()" *ngIf="authService.isLoggedIn">Logout</button>-->
+		<button type="submit" class="btn btn-primary btn-block" [disabled]="!loginFrom.form.valid">登陆</button>
 	</form>
 </div>
