@@ -2,24 +2,32 @@ import { Injectable }       from '@angular/core';
 import { Router,
 		 NavigationExtras
 }							from '@angular/router';
+import { Http, Response }   from '@angular/http';
+import { Observable }       from 'rxjs/Observable';
+
 import { AuthService } from './auth.service';
+
+import { Staff }       from './staff.model';
 
 @Injectable()
 export class LoginService {
+	//public url: string = '';
 	public message: string;
-	
+
 	public constructor(
 		public authService: AuthService,
 		public router: Router
 	) {
 		this.setMessage();
 	}
-	
+
 	public setMessage() {
 		this.message = 'Logged ' + (this.authService.isLoggedIn ? 'in' : 'out');
 	}
-	
-	public login() {
+
+	public login(data: {email: string; password: string}): Observable<Staff> {
+		console.log(data);
+		/*
 		this.message = 'Trying to log in ...';
 
 		this.authService.login().subscribe(() => {
@@ -38,6 +46,7 @@ export class LoginService {
 				this.router.navigate([redirect], navigationExtras);
 			}
 		});
+		*/
 	}
 
 	public logout() {

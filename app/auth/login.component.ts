@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 
 import { LoginService } from './login.service';
-import { Login }        from './login.model';
 
 @Component({
 	moduleId: module.id,
@@ -10,12 +9,15 @@ import { Login }        from './login.model';
 })
 
 export class LoginComponent {
-	public model: Login = new Login('', '');
-	
+	private model: Object;
+
 	public constructor(
 		public loginService: LoginService
-	) {}
+	) {
+		this.model = {};
+	}
 
-	public onSubmit() {
-	};
+	public onSubmit(from) {
+		this.loginService.login(from.value);
+	}
 }
