@@ -23,8 +23,9 @@
 
 		<script src="systemjs.config.js"></script>
 		<script>
-			System.import('app').catch(function(err) {
-				console.error(err);
+			// bootstrap when document is ready
+			document.addEventListener("DOMContentLoaded", function() {
+				System.import('app').catch(function(err) { console.error(err); });
 			});
 		</script>
 	</head>
