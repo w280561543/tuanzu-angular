@@ -15,8 +15,9 @@ export class LoginService {
 	public message: string;
 
 	public constructor(
-		public authService: AuthService,
-		public router: Router
+		private authService: AuthService,
+		private router: Router,
+		private http: Http
 	) {
 		this.setMessage();
 	}
