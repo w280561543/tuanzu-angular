@@ -17,7 +17,7 @@ export class LoginComponent {
 		this.model = {};
 	}
 
-	public onSubmit(from) {
+	public onSubmit(from: any) {
 		this.loginService.login(from.value);
 	}
 }

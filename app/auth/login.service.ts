@@ -26,8 +26,10 @@ export class LoginService {
 		this.message = 'Logged ' + (this.authService.isLoggedIn ? 'in' : 'out');
 	}
 
-	public login(data: {email: string; password: string}): Observable<Staff> {
+	//public login(data: {email: string; password: string}): Observable<Staff> {
+	public login(data: {email: string; password: string}): any {
 		console.log(data);
+		return {"staffId": 1, "fullName": "李", "token": "sadf4saf65sa156a1ef651"};
 		/*
 		this.message = 'Trying to log in ...';
 
