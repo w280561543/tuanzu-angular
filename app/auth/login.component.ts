@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+import { Response } from '@angular/http';
+import { Router }    from '@angular/router';
 
-import { LoginService } from './login.service';
+import { AuthService } from './auth.service';
 
 @Component({
 	moduleId: module.id,
@@ -12,12 +14,30 @@ export class LoginComponent {
 	private model: Object;
 
 	public constructor(
-		public loginService: LoginService
+		private authService: AuthService,
+		private router: Router
 	) {
 		this.model = {};
 	}
 
-	public onSubmit(from: any) {
-		this.loginService.login(from.value);
+	public onSubmit(form: any) {
+		let val = form.value;
+		//val['password'] = '';
+		//form.resetForm(val);
+		this.authService.login(form.value).subscribe((res: Response) => {
+			//console.log(res);
+			if(this.authService.isLoggedIn) {
+				let redirect = this.authService.redirectUrl ? this.authService.redirectUrl : '/dashboard';
+
+				// Set our navigation extras object
+				// that passes on our global query params and fragment
+
+				// Redirect
+				this.router.navigate([redirect], {
+					preserveQueryParams: true,
+					preserveFragment: true
+				});
+			}
+		});
 	}
 }

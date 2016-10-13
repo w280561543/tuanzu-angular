@@ -1,15 +1,13 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms';
-import { HttpModule, 
-		 JsonpModule
-}                        from '@angular/http';
 
 import { AppComponent }        from './app.component';
 import { routing, 
 		 appRoutingProviders } from './app.routing';
 
 import { LoginComponent }     from './auth/login.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { HousingModule } from './module/housing/housing';
 
@@ -17,15 +15,14 @@ import { HousingModule } from './module/housing/housing';
 	imports: [
 		BrowserModule,
 		FormsModule,
-		HttpModule,
-		JsonpModule,
 		routing,
 		
 		HousingModule
 	],
 	declarations: [
 		AppComponent,
-		LoginComponent
+		LoginComponent,
+		DashboardComponent
 	],
 	providers: [
 		...appRoutingProviders
