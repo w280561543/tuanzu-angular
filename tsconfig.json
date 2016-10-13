@@ -1,5 +1,6 @@
 {
 	"compilerOptions": {
+		"outDir": "app",
 		"target": "es5",
 		"module": "commonjs",
 		"moduleResolution": "node",
@@ -9,5 +10,8 @@
 		"removeComments": false,
 		"noImplicitAny": true,
 		"suppressImplicitAnyIndexErrors": true
-	}
+	},
+	"exclude": [
+		"node_modules"
+	]
 }
