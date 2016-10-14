@@ -1,6 +1,6 @@
 {
 	"name": "tuanzu-angular",
-	"version": "0.0.1-beta.3",
+	"version": "0.0.1-beta.4",
 	"description": "tuanzu angular 2",
 	"scripts": {
 		"start": "concurrently \"tsc -w\" \"lite-server\" ",
@@ -27,7 +27,7 @@
 		"@angular/router": "~3.0.2",
 		"@angular/upgrade": "~2.0.2",
 
-		"angular-in-memory-web-api": "~0.1.5",
+		"angular-in-memory-web-api": "~0.1.7",
 
 		"systemjs": "^0.19.39",
 		"core-js": "^2.4.1",
@@ -36,7 +36,7 @@
 		"zone.js": "^0.6.25",
 
 		"font-awesome": "^4.6.1",
-		"bootstrap": "^3.3.7"
+		"bootstrap": "^4.0.0-alpha.4"
 	},
 	"devDependencies": {
 		"concurrently": "^3.1.0",
