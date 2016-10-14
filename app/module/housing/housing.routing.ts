@@ -1,6 +1,8 @@
 import { ModuleWithProviders }  from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { AuthGuard } from '../../auth/auth-guard.service';
+
 import { HousingComponent }          from './housing.component';
 import { HousingDashboardComponent } from './dashboard/housing-dashboard.component';
 
@@ -10,7 +12,7 @@ const housingRoutes: Routes = [
 		component: HousingComponent,
 		canActivate: [AuthGuard],
 		children: [
-			{ path: '', component: HousingDashboardComponent, canActivate: [AuthGuard] }
+			{ path: '', component: HousingDashboardComponent }
 		]
 	}
 ];
