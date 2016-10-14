@@ -17,11 +17,17 @@ export class AuthService {
 		private http: Http
 	) {}
 	
-	public login(data: {email: string; password: string}): Observable<Response> {
+	public login(data: {email: string; password: string}): Observable<any> {
 		return this.http
 			.post(this.url + 'staff/login', JSON.stringify(data))
 			.map((res: Response) => {
-				console.log(res);
+				let j = res.json() || {};
+				if(JSON.stringify(j) !== '{}' && j.code === 1) {
+					this.isLoggedIn = true;
+				} else {
+					this.isLoggedIn = false;
+				}
+				return j;
 			})
 			.catch(this.handleError);
 	}
