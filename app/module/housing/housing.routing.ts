@@ -1,18 +1,20 @@
 import { ModuleWithProviders }  from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AuthGuard } from '../../auth/auth-guard.service';
+//import { AuthGuard } from '../../auth/auth-guard.service';
 
 import { HousingComponent }          from './housing.component';
+import { HousingBillComponent }      from './bill/housing-bill.component';
 import { HousingDashboardComponent } from './dashboard/housing-dashboard.component';
 
 const housingRoutes: Routes = [
 	{
 		path: '',
 		component: HousingComponent,
-		canActivate: [AuthGuard],
+//		canActivate: [AuthGuard],
 		children: [
-			{ path: '', component: HousingDashboardComponent }
+			{ path: 'bill', component: HousingBillComponent },
+			{ path: '',     component: HousingDashboardComponent }
 		]
 	}
 ];

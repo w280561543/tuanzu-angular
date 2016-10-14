@@ -12,7 +12,8 @@ const appRoutes: Routes = [
 	{ path: '', redirectTo: '/login', pathMatch: 'full' },
 	{ path: 'login',     component: LoginComponent },
 	{ path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
-
+	
+	// Module
 	{ path: 'housing', loadChildren: 'app/module/housing/housing.module#HousingModule', canLoad: [AuthGuard] }
 ];
 
