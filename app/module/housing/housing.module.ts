@@ -4,7 +4,8 @@ import { HttpModule }   from '@angular/http';
 
 import { housingRouting } from './housing.routing';
 
-import { HousingComponent } from './housing.component';
+import { HousingComponent }          from './housing.component';
+import { HousingDashboardComponent } from './dashboard/housing-dashboard.component';
 
 import { HousingService } from './housing.service';
 
@@ -15,7 +16,8 @@ import { HousingService } from './housing.service';
 		housingRouting
 	],
 	declarations: [
-		HousingComponent
+		HousingComponent,
+		HousingDashboardComponent
 	],
 	providers: [
 		HousingService

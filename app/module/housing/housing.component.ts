@@ -1,27 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-
-import { HousingService } from './housing.service';
+import { Component } from '@angular/core';
 
 @Component({
-	moduleId: module.id,
-	selector: 'housing',
-	templateUrl: 'housing.component.html',
-	providers: [HousingService]
+	template: `<router-outlet></router-outlet>`
 })
 
-export class HousingComponent implements OnInit {
-	
-	public data: Object[];
-	
-	public constructor(
-		private housingService: HousingService
-	) {}
-	
-	public ngOnInit() {
-		/*
-		this.housingService
-			.getHousing()
-			.then(data => [this.data = data, console.log(data)]);
-		*/
-	}
+export class HousingComponent{
 }
