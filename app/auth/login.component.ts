@@ -28,13 +28,8 @@ export class LoginComponent {
 				console.log(j);
 				let redirect = this.authService.redirectUrl ? this.authService.redirectUrl : '/dashboard';
 
-				// Set our navigation extras object
-				// that passes on our global query params and fragment
 				// Redirect
-				this.router.navigate([redirect], {
-					preserveQueryParams: true,
-					preserveFragment: true
-				});
+				this.router.navigate([redirect]);
 			} else {
 				this.message = j.message;
 			}

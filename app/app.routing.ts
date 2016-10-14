@@ -11,9 +11,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 const appRoutes: Routes = [
 	{ path: '', redirectTo: '/login', pathMatch: 'full' },
 	{ path: 'login',     component: LoginComponent },
-	{ path: 'dashboard', component: DashboardComponent},
+	{ path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
 
-	{ path: 'housing', loadChildren: 'app/module/housing/housing.module#HousingModule' }
+	{ path: 'housing', loadChildren: 'app/module/housing/housing.module#HousingModule', canLoad: [AuthGuard] }
 ];
 
 export const appRoutingProviders: any[] = [
