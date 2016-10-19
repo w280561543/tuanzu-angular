@@ -1,0 +1,28 @@
+.nav-link:focus,
+.nav-link:hover {
+	background-color: #0275d8;
+	color: #FFF;
+}
+
+.nav-pills .nav-link {
+	border-radius: 0;
+}
+
+.dropdown-menu {
+	position: relative;
+	float: none;
+	margin: 0;
+	border-radius: 0;
+}
+
+.dropdown-toggle::after {
+	border-top: .3em solid transparent;
+	border-left: .3em solid;
+	border-bottom: .3em solid transparent;
+}
+
+.open> .dropdown-toggle::after {
+	margin-top: .2em;
+	border-top: .3em solid;
+	border-left: .3em solid transparent
+}
