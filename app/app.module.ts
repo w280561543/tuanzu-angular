@@ -10,6 +10,8 @@ import { routing,
 import { LoginComponent }     from './auth/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
+import { SidebarComponent }   from './components/sidebar/sidebar.component';
+
 @NgModule({
 	imports: [
 		BrowserModule,
@@ -20,7 +22,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 	declarations: [
 		AppComponent,
 		LoginComponent,
-		DashboardComponent
+		DashboardComponent,
+		SidebarComponent
 	],
 	providers: [
 		...appRoutingProviders

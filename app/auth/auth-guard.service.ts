@@ -27,7 +27,9 @@ export class AuthGuard implements CanActivate, CanLoad {
 	}
 
 	public checkLogin(url: string): boolean {
-		if(this.authService.isLoggedIn) { return true; }
+		// TODO 关闭用户验证,方便用于开发.
+		return true;
+		//if(this.authService.isLoggedIn) { return true; }
 
 		// Store the attempted URL for redirecting
 		this.authService.redirectUrl = url;
