@@ -27,7 +27,7 @@
 		"@angular/router": "~3.1.0",
 		"@angular/upgrade": "~2.1.0",
 
-		"angular-in-memory-web-api": "~0.1.9",
+		"angular-in-memory-web-api": "~0.1.12",
 
 		"systemjs": "^0.19.39",
 		"core-js": "^2.4.1",
@@ -36,7 +36,7 @@
 		"zone.js": "^0.6.26",
 
 		"font-awesome": "^4.6.1",
-		"bootstrap": "^4.0.0-alpha.4"
+		"bootstrap": "^4.0.0-alpha.5"
 	},
 	"devDependencies": {
 		"concurrently": "^3.1.0",
