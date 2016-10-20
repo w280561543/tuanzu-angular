@@ -10,8 +10,8 @@ import { AuthService }      from './auth.service';
 @Injectable()
 export class AuthGuard implements CanActivate, CanLoad {
 	public constructor(
-		private authService: AuthService,
-		private router :Router
+		private _authService: AuthService,
+		private _router :Router
 	) {}
 
 	public canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
@@ -29,13 +29,13 @@ export class AuthGuard implements CanActivate, CanLoad {
 	public checkLogin(url: string): boolean {
 		// TODO 关闭用户验证,方便用于开发.
 		return true;
-		//if(this.authService.isLoggedIn) { return true; }
+		//if(this._authService.isLoggedIn) { return true; }
 
 		// Store the attempted URL for redirecting
-		this.authService.redirectUrl = url;
+		this._authService.redirectUrl = url;
 
 		// Navigate to the login page with extras
-		this.router.navigate(['/login']);
+		this._router.navigate(['/login']);
 		return false;
 	}
 }

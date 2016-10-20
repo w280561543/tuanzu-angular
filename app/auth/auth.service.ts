@@ -14,11 +14,11 @@ export class AuthService {
 	public redirectUrl: string;
 	
 	public constructor(
-		private http: Http
+		private _http: Http
 	) {}
 	
 	public login(data: {email: string; password: string}): Observable<any> {
-		return this.http
+		return this._http
 			.post(this.url + 'staff/login', JSON.stringify(data))
 			.map((res: Response) => {
 				let j = res.json() || {};

@@ -15,21 +15,21 @@ export class LoginComponent {
 	public message: string = '';
 	
 	public constructor(
-		private authService: AuthService,
-		private router: Router
+		private _authService: AuthService,
+		private _router: Router
 	) {
 		this.model = {};
 	}
 
 	public onSubmit(form: any) {
-		this.authService.login(form.value).subscribe((j: any) => {
+		this._authService.login(form.value).subscribe((j: any) => {
 			this.message = '';
-			if(this.authService.isLoggedIn) {
+			if(this._authService.isLoggedIn) {
 				console.log(j);
-				let redirect = this.authService.redirectUrl ? this.authService.redirectUrl : '/dashboard';
+				let redirect = this._authService.redirectUrl ? this._authService.redirectUrl : '/dashboard';
 
 				// Redirect
-				this.router.navigate([redirect]);
+				this._router.navigate([redirect]);
 			} else {
 				this.message = j.message;
 			}
