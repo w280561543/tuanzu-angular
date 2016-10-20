@@ -1,5 +1,5 @@
-<div class="container-fluid">
-	<form class="bg-faded m-x-auto m-t-3 p-t-1 p-r-2 p-b-2 p-l-2" style="width: 40%;" (ngSubmit)="onSubmit(loginFrom)" #loginFrom="ngForm">
+<div class="container-fluid p-0">
+	<form class="bg-faded mx-auto mt-3 pt-1 pr-2 pb-2 pl-2" style="width: 40%;" (ngSubmit)="onSubmit(loginFrom)" #loginFrom="ngForm">
 		<h2 class="text-xs-center">登陆</h2>
 		<div class="alert alert-danger" *ngIf="this.message">{{this.message}}</div>
 		
