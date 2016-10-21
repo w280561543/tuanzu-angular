@@ -7,10 +7,10 @@ import { AppComponent }        from './app.component';
 import { routing, 
 		 appRoutingProviders } from './app.routing';
 
+import { SidebarComponent }   from './components/sidebar/sidebar.component';
+
 import { LoginComponent }     from './auth/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-
-import { SidebarComponent }   from './components/sidebar/sidebar.component';
 
 @NgModule({
 	imports: [
@@ -21,9 +21,10 @@ import { SidebarComponent }   from './components/sidebar/sidebar.component';
 	],
 	declarations: [
 		AppComponent,
+		SidebarComponent,
+		
 		LoginComponent,
-		DashboardComponent,
-		SidebarComponent
+		DashboardComponent
 	],
 	providers: [
 		...appRoutingProviders
