@@ -13,10 +13,8 @@ const housingRoutes: Routes = [
 		component: HousingComponent,
 //		canActivate: [AuthGuard],
 		children: [
-			{ path: 'dashboard', component: HousingDashboardComponent },
-			{ path: 'bill',      component: HousingBillComponent },
-
-			{ path: '',          redirectTo: 'dashboard' }
+			{ path: 'bill', component: HousingBillComponent },
+			{ path: '',     component: HousingDashboardComponent }
 		]
 	}
 ];

@@ -8,15 +8,13 @@ import { Component } from '@angular/core';
 			<li class="nav-item">
 				<a class="nav-link" routerLink="/dashboard" routerLinkActive="active">首页</a>
 			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="javascript:void(0);">Link</a>
-			</li>
 			<li class="small text-muted">管理</li>
 			<li class="nav-item dropdown" (click)="toggle($event)" [class.open]="isOpen">
 				<a class="nav-link dropdown-toggle" href="javascript:void(0);">Housing</a>
 				<div class="dropdown-menu">
-					<a class="dropdown-item" routerLink="/housing">Housing</a>
-					<a class="dropdown-item" routerLink="/housing/bill">Housing-bill</a>
+					<a class="dropdown-item" routerLink="/housing" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+true}">Housing</a>
+					<a class="dropdown-item" routerLink="/housing/bill" routerLinkActive="active">Housing-bill</a>
 				</div>
 			</li>
 		</ul>
@@ -30,6 +28,7 @@ export class SidebarComponent {
 	public toggle(ev: any): void {
 		ev.preventDefault();
 		ev.stopPropagation();
+		console.log(this._activatedRoute);
 		this.isOpen = !this.isOpen;
 	}
 }
