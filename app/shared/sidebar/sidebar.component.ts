@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
 	moduleId: module.id,
@@ -24,11 +24,11 @@ true}">Housing</a>
 
 export class SidebarComponent {
 	public isOpen: boolean = false;
-
-	public toggle(ev: any): void {
-		ev.preventDefault();
-		ev.stopPropagation();
-		console.log(this._activatedRoute);
+	
+	@HostListener('click', ['$event.target.offsetParent'])
+	public toggle(ev: Any): void {
+		//ev.stopPropagation();
+		console.log(ev);
 		this.isOpen = !this.isOpen;
 	}
 }
