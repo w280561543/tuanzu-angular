@@ -1,31 +1,24 @@
 import { NgModule }   from '@angular/core';
 import { HttpModule } from '@angular/http';
 
-import { SharedModule } from '../../shared/shared.module';
-
-import { housingRouting } from './housing.routing';
+import { SharedModule }         from '../../shared/shared.module';
+import { HousingRoutingModule } from './housing-routing.module';
 
 import { HousingComponent }          from './housing.component';
 import { HousingBillComponent }      from './bill/housing-bill.component';
 import { HousingDashboardComponent } from './dashboard/housing-dashboard.component';
-
-import { HousingService } from './housing.service';
 
 @NgModule({
 	imports: [
 		HttpModule,
 
 		SharedModule,
-
-		housingRouting
+		HousingRoutingModule
 	],
 	declarations: [
 		HousingComponent,
 		HousingBillComponent,
 		HousingDashboardComponent
-	],
-	providers: [
-		HousingService
 	]
 })
 
