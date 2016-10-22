@@ -28,8 +28,8 @@ export class AuthGuard implements CanActivate, CanLoad {
 
 	public checkLogin(url: string): boolean {
 		// TODO 关闭用户验证,方便用于开发.
-		return true;
-		//if(this._authService.isLoggedIn) { return true; }
+		/*
+		if(this._authService.isLoggedIn) { return true; }
 
 		// Store the attempted URL for redirecting
 		this._authService.redirectUrl = url;
@@ -37,5 +37,7 @@ export class AuthGuard implements CanActivate, CanLoad {
 		// Navigate to the login page with extras
 		this._router.navigate(['/login']);
 		return false;
+		*/
+		return true;
 	}
 }
