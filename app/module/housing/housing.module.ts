@@ -1,7 +1,7 @@
 import { NgModule }   from '@angular/core';
 import { HttpModule } from '@angular/http';
 
-import { SharedModule } from 'app/shared/shared.module';
+import { SharedModule } from '../../shared/shared.module';
 
 import { housingRouting } from './housing.routing';
 
