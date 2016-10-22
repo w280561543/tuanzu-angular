@@ -1,10 +1,9 @@
 {
 	"name": "tuanzu-angular",
-	"version": "0.0.1-beta.6",
+	"version": "0.0.1-beta.7",
 	"description": "tuanzu angular 2",
 	"scripts": {
-		"start": "concurrently \"tsc -w\" \"lite-server\" ",
-		"typings": "typings"
+		"start": "concurrently \"tsc -w\" \"lite-server\" "
 	},
 	"repository": {
 		"type": "git",
@@ -17,17 +16,17 @@
 	},
 	"homepage": "https://github.com/w280561543/tuanzu-angular#readme",
 	"dependencies": {
-		"@angular/common": "~2.1.0",
-		"@angular/compiler": "~2.1.0",
-		"@angular/core": "~2.1.0",
-		"@angular/forms": "~2.1.0",
-		"@angular/http": "~2.1.0",
-		"@angular/platform-browser": "~2.1.0",
-		"@angular/platform-browser-dynamic": "~2.1.0",
-		"@angular/router": "~3.1.0",
-		"@angular/upgrade": "~2.1.0",
+		"@angular/common": "~2.1.1",
+		"@angular/compiler": "~2.1.1",
+		"@angular/core": "~2.1.1",
+		"@angular/forms": "~2.1.1",
+		"@angular/http": "~2.1.1",
+		"@angular/platform-browser": "~2.1.1",
+		"@angular/platform-browser-dynamic": "~2.1.1",
+		"@angular/router": "~3.1.1",
+		"@angular/upgrade": "~2.1.1",
 
-		"angular-in-memory-web-api": "~0.1.12",
+		"angular-in-memory-web-api": "~0.1.13",
 
 		"systemjs": "^0.19.39",
 		"core-js": "^2.4.1",
@@ -42,6 +41,10 @@
 		"concurrently": "^3.1.0",
 		"lite-server": "^2.2.2",
 		"typescript": "^2.0.3",
-		"typings": "^1.4.0"
+
+		"@types/core-js": "^0.9.34",
+		"@types/node": "^6.0.45",
+		"@types/jasmine": "^2.5.35",
+		"@types/selenium-webdriver": "^2.53.32"
 	}
 }
