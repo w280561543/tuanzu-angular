@@ -1,6 +1,7 @@
-import { NgModule }     from '@angular/core';
-//import { CommonModule } from '@angular/common';
-import { HttpModule }   from '@angular/http';
+import { NgModule }   from '@angular/core';
+import { HttpModule } from '@angular/http';
+
+import { SharedModule } from 'app/shared/shared.module';
 
 import { housingRouting } from './housing.routing';
 
@@ -13,6 +14,8 @@ import { HousingService } from './housing.service';
 @NgModule({
 	imports: [
 		HttpModule,
+
+		SharedModule,
 
 		housingRouting
 	],
