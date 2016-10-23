@@ -11,8 +11,8 @@ import { Component } from '@angular/core';
 
 			<li class="small text-muted">管理</li>
 
-			<li class="nav-item dropdown" (click)="toggle($event, 0)" [class.open]="isOpen[0]">
-				<a class="nav-link dropdown-toggle" href="javascript:void(0);">Housing</a>
+			<li class="nav-item dropdown" [class.open]="isOpen[0]" routerLinkActive="open">
+				<a class="nav-link dropdown-toggle" href="javascript:void(0);" (click)="toggle($event, 0)">Housing</a>
 				<div class="dropdown-menu">
 					<a class="dropdown-item" routerLink="/housing" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
 true}">Housing</a>
@@ -20,8 +20,8 @@ true}">Housing</a>
 				</div>
 			</li>
 
-			<li class="nav-item dropdown" (click)="toggle($event, 1)" [class.open]="isOpen[1]">
-				<a class="nav-link dropdown-toggle" href="javascript:void(0);">Room</a>
+			<li class="nav-item dropdown" [class.open]="isOpen[1]" routerLinkActive="open">
+				<a class="nav-link dropdown-toggle" href="javascript:void(0);" (click)="toggle($event, 1)">Room</a>
 				<div class="dropdown-menu">
 					<a class="dropdown-item" href="javascript:void(0);">Room</a>
 					<a class="dropdown-item" href="javascript:void(0);">Room-bill</a>
