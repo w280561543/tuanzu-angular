@@ -34,7 +34,7 @@ true}">Housing</a>
 })
 
 export class SidebarComponent {
-	public isOpen: any[] = [false, false];
+	public isOpen: any[] = [];
 
 	public toggle(e: Event, n: number): void {
 		e.stopPropagation();
