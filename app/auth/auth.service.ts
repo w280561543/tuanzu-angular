@@ -36,9 +36,9 @@ export class AuthService {
 		this.isLoggedIn = false;
 	}
 	
-	private handleError(error: any): any {
+	private handleError(e: any): any {
 		this.isLoggedIn = false;
-		console.error(error);
-		throw `${error.status} +  -  + ${error.statusText}`;
+		console.error(e);
+		throw `${e.status} +  -  + ${e.statusText}`;
 	}
 }
