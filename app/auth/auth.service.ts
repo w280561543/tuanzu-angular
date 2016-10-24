@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class AuthService {
-	private url: string = 'http://api.52tuanzu.com/v1/';
+	private _url: string = 'http://api.52tuanzu.com/v1/';
 	
 	public isLoggedIn: boolean = false;
 	
@@ -19,7 +19,7 @@ export class AuthService {
 	
 	public login(data: {email: string; password: string}): Observable<any> {
 		return this._http
-			.post(this.url + 'staff/login', JSON.stringify(data))
+			.post(this._url + 'staff/login', JSON.stringify(data))
 			.map((res: Response) => {
 				let j = res.json() || {};
 				if(JSON.stringify(j) !== '{}' && j.code === 1) {
