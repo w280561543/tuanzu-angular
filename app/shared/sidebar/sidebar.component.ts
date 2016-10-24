@@ -12,19 +12,19 @@ import { Component } from '@angular/core';
 			<li class="small text-muted">管理</li>
 
 			<li class="nav-item dropdown" [class.open]="isOpen[0]" routerLinkActive="open">
-				<a class="nav-link dropdown-toggle" href="javascript:void(0);" (click)="toggle($event, 0)">Housing</a>
+				<a class="nav-link dropdown-toggle" href="javascript:void(0);" (click)="toggle($event, 0)">房源管理</a>
 				<div class="dropdown-menu">
 					<a class="dropdown-item" routerLink="/housing" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
-true}">Housing</a>
-					<a class="dropdown-item" routerLink="/housing/bill" routerLinkActive="active">Housing-bill</a>
+true}">套房管理</a>
+					<a class="dropdown-item" routerLink="/housing/bill" routerLinkActive="active">套房账单</a>
 				</div>
 			</li>
 
 			<li class="nav-item dropdown" [class.open]="isOpen[1]" routerLinkActive="open">
-				<a class="nav-link dropdown-toggle" href="javascript:void(0);" (click)="toggle($event, 1)">Room</a>
+				<a class="nav-link dropdown-toggle" href="javascript:void(0);" (click)="toggle($event, 1)">出租管理</a>
 				<div class="dropdown-menu">
-					<a class="dropdown-item" href="javascript:void(0);">Room</a>
-					<a class="dropdown-item" href="javascript:void(0);">Room-bill</a>
+					<a class="dropdown-item" href="javascript:void(0);">租客合同</a>
+					<a class="dropdown-item" href="javascript:void(0);">租客账单</a>
 				</div>
 			</li>
 
