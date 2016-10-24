@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class AuthService {
-	private url: string = 'http://api.52tuanzu.com/';
+	private url: string = 'http://api.52tuanzu.com/v1/';
 	
 	public isLoggedIn: boolean = false;
 	
