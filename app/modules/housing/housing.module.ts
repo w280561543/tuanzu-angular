@@ -1,5 +1,7 @@
-import { NgModule }   from '@angular/core';
-import { HttpModule } from '@angular/http';
+import { NgModule }     from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule }  from '@angular/forms';
+import { HttpModule }   from '@angular/http';
 
 import { SharedModule }         from '../../shared/shared.module';
 import { HousingRoutingModule } from './housing-routing.module';
@@ -10,6 +12,8 @@ import { HousingDashboardComponent } from './dashboard/housing-dashboard.compone
 
 @NgModule({
 	imports: [
+		CommonModule,
+		FormsModule,
 		HttpModule,
 
 		SharedModule,
