@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 
 @Component({
-	moduleId: module.id,
 	selector: 't-siderbar',
     template: `
     	<ul class="nav nav-pills nav-stacked">
