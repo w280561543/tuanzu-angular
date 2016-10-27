@@ -9,6 +9,7 @@
 .dropdown-menu {
 	position: relative;
 	float: none;
+	min-width: auto;
 	margin: 0;
 	border-radius: 0;
 }
