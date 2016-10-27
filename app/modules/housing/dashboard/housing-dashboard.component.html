@@ -23,14 +23,14 @@
 	</thead>
 	<tbody>
 		<tr>
+			<td class="text-sm-center align-middle"><button type="sbumit" class="btn btn-success btn-sm" (click)="getAll()">全部</button></td>
+			<td><input type="text" class="form-control form-control-sm" placeholder="编号" [(ngModel)]="filters.number" /></td>
+			<td><input type="text" class="form-control form-control-sm" placeholder="标题" [(ngModel)]="filters.title" /></td>
 			<td>&nbsp;</td>
-			<td><input type="text" class="form-control form-control-sm" placeholder="编号" [(ngModel)]="filter.number" /></td>
-			<td><input type="text" class="form-control form-control-sm" placeholder="标题" [(ngModel)]="filter.title" /></td>
-			<td><input type="text" class="form-control form-control-sm" placeholder="区域" [(ngModel)]="filter.district" /></td>
-			<td><input type="text" class="form-control form-control-sm" placeholder="街道" [(ngModel)]="filter.street" /></td>
+			<td><input type="text" class="form-control form-control-sm" placeholder="街道" [(ngModel)]="filters.street" /></td>
 			<td>&nbsp;</td>
 			<td>&nbsp;</td>
-			<td><button type="sbumit" class="btn btn-success btn-sm" (click)="onFilter()">搜索</button></td>
+			<td><button type="sbumit" class="btn btn-primary btn-sm" (click)="onFilter()">搜索</button></td>
 		</tr>
 		<tr *ngFor="let item of data.items; let i=index">
 			<th class="text-sm-center align-middle" scope="row">{{ i + 1 }}</th>
@@ -44,12 +44,5 @@
 		</tr>
 	</tbody>
 </table>
-<div>当前:{{ data.current }}页/总共{{ data.total_pages }}页&nbsp;|&nbsp;每页:{{ data.limit }}条&nbsp;/&nbsp;总共{{ data.total_items }}条</div>
-<ul class="pagination pagination-sm mt-0 mb-0">
-	<li class="page-item disabled"><a class="page-link" href="javascript:void(0);">首页</a></li>
-	<li class="page-item disabled"><a class="page-link" href="javascript:void(0);">&laquo;</a></li>
-	<li class="page-item active"><a class="page-link" href="javascript:void(0);">1</a></li>
-	<li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
-	<li class="page-item"><a class="page-link" href="javascript:void(0);">&raquo;</a></li>
-	<li class="page-item"><a class="page-link" href="javascript:void(0);">尾页</a></li>
-</ul>
+<div class="text-sm-center">当前:{{ data.current }}页/总共{{ data.total_pages }}页&nbsp;|&nbsp;每页:{{ data.limit }}条&nbsp;/&nbsp;总共{{ data.total_items }}条</div>
+<t-pagination class="col-sm-12 text-sm-center" [config]="pageConfig" (pageChanged)="pageChanged($event)"></t-pagination>
