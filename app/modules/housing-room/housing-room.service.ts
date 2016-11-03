@@ -15,4 +15,21 @@ export class HousingRoomService {
 	) {
 		this.urlSearchParams = new URLSearchParams();
 	}
+
+	public setPage(v: any): void {
+		this.urlSearchParams.set('page', v);
+	}
+
+	public getAll(): Observable < any > {
+		return this._http
+			.get(this._url + 'housing_room', {
+				search: this.urlSearchParams
+			})
+			.catch(this.handleError);
+	}
+
+	private handleError(e: any): any {
+		console.error(e);
+		throw `${e.status} +  -  + ${e.statusText}`;
+	}
 }
