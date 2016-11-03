@@ -44,5 +44,5 @@
 		</tr>
 	</tbody>
 </table>
-<div class="text-sm-center">当前:{{ data.current }}页/总共{{ data.total_pages }}页&nbsp;|&nbsp;每页:{{ data.limit }}条&nbsp;/&nbsp;总共{{ data.total_items }}条</div>
+<div class="text-sm-center">当前:{{ data.current }}页&nbsp;/&nbsp;总共{{ data.total_pages }}页&nbsp;|&nbsp;每页:{{ data.limit }}条&nbsp;/&nbsp;总共{{ data.total_items }}条</div>
 <t-pagination class="col-sm-12 text-sm-center" [config]="pageConfig" (pageChanged)="pageChanged($event)"></t-pagination>
