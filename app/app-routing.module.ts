@@ -16,7 +16,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 			{ path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
 
 			// Module
-			{ path: 'housing', loadChildren: 'app/modules/housing/housing.module#HousingModule', canLoad: [AuthGuard] }
+			{ path: 'housing', loadChildren: 'app/modules/housing/housing.module#HousingModule', canLoad: [AuthGuard] },
+			{ path: 'housing-room', loadChildren: 'app/modules/housing-room/housing-room.module#HousingRoomModule', canLoad: [AuthGuard] }
 		])
 	],
 	exports: [
