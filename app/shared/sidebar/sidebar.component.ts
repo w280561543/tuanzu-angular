@@ -23,7 +23,8 @@ true}">套房管理(旧)</a>
 			<li class="nav-item dropdown" [class.open]="isOpen[1]" routerLinkActive="open">
 				<a class="nav-link dropdown-toggle" href="javascript:void(0);" (click)="toggle($event, 1)">出租管理</a>
 				<div class="dropdown-menu">
-					<a class="dropdown-item" href="javascript:void(0);">租客合同(旧)</a>
+					<a class="dropdown-item" routerLink="/housing-room" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+true}">租客合同</a>
 					<a class="dropdown-item" href="javascript:void(0);">租客账单</a>
 				</div>
 			</li>
