@@ -15,8 +15,10 @@ a:focus {
 }
 
 .btn,
-.panel {
+.panel,
+.breadcrumb {
 	border-radius: 0;
 }
+
 
 /* reset bootstrap end */
