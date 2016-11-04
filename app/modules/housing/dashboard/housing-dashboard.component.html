@@ -1,13 +1,12 @@
 <table class="table table-sm table-bordered table-hover">
 	<colgroup>
 		<col width="5%" />
+		<col width="15%" />
+		<col width="15%" />
+		<col width="15%" />
+		<col width="25%" />
 		<col width="10%" />
 		<col width="15%" />
-		<col width="10%" />
-		<col width="20%" />
-		<col width="10%" />
-		<col width="10%" />
-		<col width="10%" />
 	</colgroup>
 	<thead class="thead-inverse">
 		<tr>
@@ -17,30 +16,45 @@
 			<th class="text-sm-center align-middle">区域</th>
 			<th class="text-sm-center align-middle">街道</th>
 			<th class="text-sm-center align-middle">总面积</th>
-			<th class="text-sm-center align-middle">发布时间</th>
 			<th class="text-sm-center align-middle">操作</th>
 		</tr>
 	</thead>
-	<tbody>
+	<!--<tbody>
 		<tr>
 			<td class="text-sm-center align-middle"><button type="sbumit" class="btn btn-success btn-sm" (click)="getAll()">全部</button></td>
 			<td><input type="text" class="form-control form-control-sm" placeholder="编号" [(ngModel)]="filters.number" /></td>
-			<td><input type="text" class="form-control form-control-sm" placeholder="标题" [(ngModel)]="filters.title" /></td>
+			<td><input type="text" class="form-control form-control-sm" placeholder="标题" [(ngModel)]="filters.name" /></td>
 			<td>&nbsp;</td>
-			<td><input type="text" class="form-control form-control-sm" placeholder="街道" [(ngModel)]="filters.street" /></td>
-			<td>&nbsp;</td>
+			<td><input type="text" class="form-control form-control-sm" placeholder="街道" [(ngModel)]="filters.address" /></td>
 			<td>&nbsp;</td>
 			<td><button type="sbumit" class="btn btn-primary btn-sm" (click)="onFilter()">搜索</button></td>
 		</tr>
-		<tr *ngFor="let item of data.items; let i=index">
-			<th class="text-sm-center align-middle" scope="row">{{ i + 1 }}</th>
-			<th class="text-sm-center align-middle">{{ item.number }}</th>
-			<th class="text-sm-center align-middle">{{ item.title }}</th>
-			<th class="text-sm-center align-middle">{{ item.district }}</th>
-			<th class="text-sm-center align-middle">{{ item.street }}</th>
-			<th class="text-sm-center align-middle">{{ item.gross_area }}</th>
-			<th class="text-sm-center align-middle">{{ item.newstime }}</th>
-			<th><button type="button" class="btn btn-sm btn-outline-primary">查看</button></th>
+	</tbody>-->
+	<tbody *ngFor="let item of data.items;let i = index">
+		<tr>
+			<td class="text-sm-center align-middle"><a class="btn btn-link btn-sm" href="javascript:void(0);" (click)="isOpen[i]=!isOpen[i]"><i class="fa fa-fw" [class.fa-plus-square-o]="!isOpen[i]" [class.fa-minus-square-o]="isOpen[i]"></i></a></td>
+			<td class="text-sm-center align-middle">{{ item.community_number.pa_number }}{{ item.community_number.ca_number }}{{ item.h_number }}</td>
+			<td class="text-sm-center align-middle">{{ item.community_number.c_name }}{{ item.community_number.c_n_name }}-{{ item.floor }}{{ item.h_name }}</td>
+			<td class="text-sm-center align-middle">{{ item.community_number.pa_name }}{{ item.community_number.ca_name }}</td>
+			<td class="text-sm-center align-middle">{{ item.community_number.c_n_address }}</td>
+			<td class="text-sm-center align-middle">{{ item.gross_area }} m<sup>2</sup></td>
+			<td><a href="javascript:void(0);" class="btn btn-sm btn-outline-primary">查看</a></td>
+		</tr>
+		<tr *ngIf="isOpen[i]">
+			<th class="text-sm-center align-middle">&nbsp;</th>
+			<th class="text-sm-center align-middle">房号</th>
+			<th class="text-sm-center align-middle">朝向</th>
+			<th class="text-sm-center align-middle">价格</th>
+			<th class="text-sm-center align-middle">面积</th>
+			<th class="text-sm-center align-middle" colspan="2">操作</th>
+		</tr>
+		<tr *ngFor="let ite of item.housing_room" [class.hidden-xs-up]="!isOpen[i]">
+			<td>&nbsp;</td>
+			<td class="text-sm-center align-middle">{{ ite.tabs }}房</td>
+			<td class="text-sm-center align-middle">{{ ite.orientation }}</td>
+			<td class="text-sm-center align-middle">{{ ite.rental }}元/月</td>
+			<td class="text-sm-center align-middle">{{ ite.area }} m<sup>2</sup></td>
+			<td colspan="2">&nbsp;</td>
 		</tr>
 	</tbody>
 </table>

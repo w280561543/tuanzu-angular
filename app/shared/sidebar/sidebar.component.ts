@@ -15,7 +15,7 @@ import { Component } from '@angular/core';
 				<a class="nav-link dropdown-toggle" href="javascript:void(0);" (click)="toggle($event, 0)">房源管理</a>
 				<div class="dropdown-menu">
 					<a class="dropdown-item" routerLink="/housing" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
-true}">套房管理(旧)</a>
+true}">套房管理</a>
 					<a class="dropdown-item" routerLink="/housing/bill" routerLinkActive="active">套房账单</a>
 				</div>
 			</li>

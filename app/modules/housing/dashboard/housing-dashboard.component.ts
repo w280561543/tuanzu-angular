@@ -13,7 +13,9 @@ export class HousingDashboardComponent implements OnInit {
 	public filters: any = {};
 
 	public pageConfig: any = {};
-
+	
+	public isOpen: Array<number> = [];
+	
 	public constructor(
 		private _housingService: HousingService
 	) {}
