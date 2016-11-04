@@ -8,6 +8,7 @@ import { HousingRoomRoutingModule } from './housing-room-routing.module';
 
 import { HousingRoomComponent }          from './housing-room.component';
 import { HousingRoomDashboardComponent } from './dashboard/housing-room-dashboard.component';
+import { HousingRoomContractComponent }  from './contract/housing-room-contract.component';
 
 @NgModule({
 	imports: [
@@ -20,7 +21,8 @@ import { HousingRoomDashboardComponent } from './dashboard/housing-room-dashboar
 	],
 	declarations: [
 		HousingRoomComponent,
-		HousingRoomDashboardComponent
+		HousingRoomDashboardComponent,
+		HousingRoomContractComponent
 	]
 })
 

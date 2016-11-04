@@ -3,6 +3,7 @@ import { RouterModule } from '@angular/router';
 
 import { HousingRoomComponent }          from './housing-room.component';
 import { HousingRoomDashboardComponent } from './dashboard/housing-room-dashboard.component';
+import { HousingRoomContractComponent }  from './contract/housing-room-contract.component';
 
 import { HousingRoomService } from './housing-room.service';
 
@@ -13,7 +14,8 @@ import { HousingRoomService } from './housing-room.service';
 				path: '',
 				component: HousingRoomComponent,
 				children: [
-					{ path: '',     component: HousingRoomDashboardComponent }
+					{ path: 'contract/:housing_room_id', component: HousingRoomContractComponent },
+					{ path: '', component: HousingRoomDashboardComponent }
 				]
 			}
 		])
