@@ -22,13 +22,12 @@
 	<tbody *ngFor="let item of data.items;let i = index">
 		<tr>
 			<td class="text-sm-center align-middle"><a class="btn btn-link btn-sm" href="javascript:void(0);" (click)="isOpen[i]=!isOpen[i]"><i class="fa fa-fw" [class.fa-plus-square-o]="!isOpen[i]" [class.fa-minus-square-o]="isOpen[i]"></i></a></td>
-			<!--<td class="text-sm-center align-middle"><i class="fa fa-fw fa-minus-square-o"></i></td>-->
 			<td class="text-sm-center align-middle">{{ item.community_number.pa_number }}{{ item.community_number.ca_number }}{{ item.h_number }}</td>
 			<td class="text-sm-center align-middle">{{ item.community_number.c_name }}{{ item.community_number.c_n_name }}-{{ item.floor }}{{ item.h_name }}</td>
 			<td class="text-sm-center align-middle">{{ item.community_number.pa_name }}{{ item.community_number.ca_name }}</td>
 			<td class="text-sm-center align-middle">{{ item.community_number.c_n_address }}</td>
 			<td class="text-sm-center align-middle">{{ item.gross_area }} m<sup>2</sup></td>
-			<td><a href="javascript:void(0);" class="btn btn-sm btn-outline-primary">查看</a></td>
+			<td><a href="javascript:void(0);" class="btn btn-sm btn-outline-primary"><i class="fa fa-fw fa-eye"></i>查看</a></td>
 		</tr>
 		<tr *ngIf="isOpen[i]">
 			<th class="text-sm-center align-middle">&nbsp;</th>
