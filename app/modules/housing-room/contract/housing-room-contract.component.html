@@ -3,3 +3,29 @@
 	<li class="breadcrumb-item"><a routerLink="/housing-room">租客合同</a></li>
 	<li class="breadcrumb-item active">签约</li>
 </ol>
+<div class="card">
+	<div class="card-header">
+		<ul class="nav nav-tabs card-header-tabs float-xs-left">
+			<li class="nav-item"><a class="nav-link" href="javascript:void(0);" [class.active]="step[0].active" (click)="active(0)">1.基本信息</a></li>
+			<li class="nav-item"><a class="nav-link" href="javascript:void(0);" [class.active]="step[1].active" (click)="active(1)">2.打印</a></li>
+			<li class="nav-item"><a class="nav-link" href="javascript:void(0);" [class.active]="step[2].active" (click)="active(2)">3.合同提交</a></li>
+		</ul>
+	</div>
+	<div class="card-block tab-content">
+		<div class="tab-pane active" *ngIf="step[0].active">
+			<housing-room-contract-info></housing-room-contract-info>
+		</div>
+
+		<div class="tab-pane active" *ngIf="step[1].active">
+			<housing-room-contract-print></housing-room-contract-print>
+		</div>
+
+		<div class="tab-pane active" *ngIf="step[2].active">
+			合同提交
+		</div>
+	</div>
+	<div class="card-footer text-xs-right">
+		<button type="button" class="btn btn-outline-primary btn-sm">上一步</button>
+		<button type="button" class="btn btn-outline-primary btn-sm">下一步</button>
+	</div>
+</div>
