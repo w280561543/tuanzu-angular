@@ -1,10 +1,4 @@
 /* reset bootstrap start */
-
-a:hover,
-a:focus {
-	text-decoration: none;
-}
-
 .btn {
 	position: relative;
 	border-width: 0;
@@ -15,8 +9,10 @@ a:focus {
 }
 
 .btn,
-.panel,
-.breadcrumb {
+.card,
+.breadcrumb,
+.nav-pills .nav-link,
+.nav-tabs .nav-link {
 	border-radius: 0;
 }
 
