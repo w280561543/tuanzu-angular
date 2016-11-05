@@ -6,9 +6,11 @@ import { HttpModule }   from '@angular/http';
 import { SharedModule }             from '../../shared/shared.module';
 import { HousingRoomRoutingModule } from './housing-room-routing.module';
 
-import { HousingRoomComponent }          from './housing-room.component';
-import { HousingRoomDashboardComponent } from './dashboard/housing-room-dashboard.component';
-import { HousingRoomContractComponent }  from './contract/housing-room-contract.component';
+import { HousingRoomComponent }               from './housing-room.component';
+import { HousingRoomDashboardComponent }      from './dashboard/housing-room-dashboard.component';
+import { HousingRoomContractComponent }       from './contract/housing-room-contract.component';
+import { HousingRoomContractInfoComponent }   from './contract/housing-room-contract-info.component';
+import { HousingRoomContractPrintComponent }  from './contract/housing-room-contract-print.component';
 
 @NgModule({
 	imports: [
@@ -22,7 +24,9 @@ import { HousingRoomContractComponent }  from './contract/housing-room-contract.
 	declarations: [
 		HousingRoomComponent,
 		HousingRoomDashboardComponent,
-		HousingRoomContractComponent
+		HousingRoomContractComponent,
+		HousingRoomContractInfoComponent,
+		HousingRoomContractPrintComponent
 	]
 })
 
