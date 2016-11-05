@@ -17,7 +17,7 @@ export class HousingRoomContractComponent implements OnInit {
 		}];
 	}
 
-	public active(n: number): boolean {
+	public active(n: number): void {
 		if(!this.step[n].active) {
 			for(let i in this.step) {
 				this.step[i].active = false;
