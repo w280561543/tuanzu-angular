@@ -30,4 +30,4 @@ import { HousingRoomContractPrintComponent }  from './contract/housing-room-cont
 	]
 })
 
-export class HousingRoomModule { }
+export class HousingRoomModule {}
