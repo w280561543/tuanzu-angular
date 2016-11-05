@@ -1,0 +1,118 @@
+<form>
+	<h5>租客基本信息(乙方)</h5>
+	<hr />
+
+	<fieldset class="form-group row">
+		<legend class="col-form-legend col-sm-2">真实姓名<small class="text-muted text-warning">(*必填)</small>：</legend>
+		<div class="col-sm-4">
+			<input type="text" name="text" class="form-control" placeholder="真实姓名" autofocus required/>
+		</div>
+		<legend class="col-form-legend col-sm-2">身份证<small class="text-muted text-warning">(*必填)</small>：</legend>
+		<div class="col-sm-4">
+			<input type="text" name="text" class="form-control" placeholder="身份证" required/>
+		</div>
+	</fieldset>
+
+	<fieldset class="form-group row">
+		<legend class="col-form-legend col-sm-2">手机号<small class="text-muted text-warning">(*必填)</small>：</legend>
+		<div class="col-sm-4">
+			<input type="text" name="text" class="form-control" placeholder="手机号" required/>
+		</div>
+		<legend class="col-form-legend col-sm-2">邮箱<small class="text-muted text-warning">(*必填)</small>：</legend>
+		<div class="col-sm-4">
+			<input type="text" name="text" class="form-control" placeholder="邮箱" required/>
+		</div>
+	</fieldset>
+
+	<hr />
+	<h5>合同基本信息</h5>
+	<hr />
+	
+	<fieldset class="form-group row">
+		<legend class="col-form-legend col-sm-2">房屋管家<small class="text-muted text-warning">(*必选)</small>：</legend>
+		<div class="col-sm-2">
+			<select class="form-control">
+				<option value="0">请选择房屋管家</option>
+			</select>
+		</div>
+		<legend class="col-form-legend col-sm-2">合同管理员<small class="text-muted text-warning">(*必选)</small>：</legend>
+		<div class="col-sm-2">
+			<select class="form-control">
+				<option value="0">请选择合同管理员</option>
+			</select>
+		</div>
+		<legend class="col-form-legend col-sm-2">带看房者<small class="text-muted text-warning">(*必选)</small>：</legend>
+		<div class="col-sm-2">
+			<select class="form-control">
+				<option value="0">请选择带看房者</option>
+			</select>
+		</div>
+	</fieldset>
+	
+	<fieldset class="form-group row">
+		<legend class="col-form-legend col-sm-2">承租起始日<small class="text-muted text-warning">(*必选)</small>：</legend>
+		<div class="col-sm-2">
+			<input class="form-control" type="date" required/>
+		</div>
+		<legend class="col-form-legend col-sm-2">承租终止日<small class="text-muted text-warning">(*必选)</small>：</legend>
+		<div class="col-sm-2">
+			<input class="form-control" type="date" required/>
+		</div>
+		<legend class="col-form-legend col-sm-2">签约日期<small class="text-muted text-warning">(*必选)</small>：</legend>
+		<div class="col-sm-2">
+			<input class="form-control" type="date" required/>
+		</div>
+	</fieldset>
+	
+	<fieldset class="form-group row">
+		<legend class="col-form-legend col-sm-2">租金：</legend>
+		<div class="col-sm-2">
+			<input type="text" class="form-control" disabled/>
+		</div>
+		<legend class="col-form-legend col-sm-2">押金<small class="text-muted text-warning">(*必填)</small>：</legend>
+		<div class="col-sm-2">
+			<input type="text" class="form-control" required/>
+		</div>
+		<legend class="col-form-legend col-sm-2">支付方式<small class="text-muted text-warning">(*必选)</small>：</legend>
+		<div class="col-sm-2">
+			<select class="form-control">
+				<option value="0">请选择支付方式</option>
+				<option value="012">押零付十二</option>
+				<option value="201">押二付一</option>
+				<option value="203">押二付三</option>
+				<option value="206">押二付六</option>
+				<option value="212">押二付十二</option>
+			</select>
+		</div>
+	</fieldset>
+	
+	<fieldset class="form-group row">
+		<legend class="col-form-legend col-sm-2">租金调整<small class="text-muted text-warning">(*必填)</small>：</legend>
+		<div class="col-sm-2">
+			<input type="text" class="form-control" required/>
+		</div>
+		<legend class="col-form-legend col-sm-2">管理费<small class="text-muted text-warning">(*必填)</small>：</legend>
+		<div class="col-sm-2">
+			<input type="text" class="form-control" required/>
+		</div>
+		<legend class="col-form-legend col-sm-2">水电燃气费<small class="text-muted text-warning">(*必填)</small>：</legend>
+		<div class="col-sm-2">
+			<input type="text" class="form-control" required/>
+		</div>
+	</fieldset>
+	
+	<fieldset class="form-group row">
+		<legend class="col-form-legend col-sm-2">交易方式<small class="text-muted text-warning">(*必选)</small>：</legend>
+		<div class="col-sm-2">
+			<select class="form-control">
+				<option value="">请选择交易方式</option>
+				<option value="0">其他</option>
+				<option value="1">银行转账</option>
+				<option value="2">刷卡支付</option>
+				<option value="3">现金</option>
+				<option value="4">支付宝转账</option>
+				<option value="4">微信转账</option>
+			</select>
+		</div>
+	</fieldset>
+</form>
