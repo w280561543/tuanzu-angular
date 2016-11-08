@@ -5,7 +5,8 @@ import { HousingRoomComponent }          from './housing-room.component';
 import { HousingRoomDashboardComponent } from './dashboard/housing-room-dashboard.component';
 import { HousingRoomContractComponent }  from './contract/housing-room-contract.component';
 
-import { HousingRoomService } from './housing-room.service';
+import { HousingRoomService }         from './housing-room.service';
+import { HousingRoomContractService } from './contract/housing-room-contract.service';
 
 @NgModule({
 	imports: [
@@ -24,7 +25,8 @@ import { HousingRoomService } from './housing-room.service';
 		RouterModule
 	],
 	providers: [
-		HousingRoomService
+		HousingRoomService,
+		HousingRoomContractService
 	]
 })
 export class HousingRoomRoutingModule {}
