@@ -6,7 +6,7 @@ import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class HousingRoomService {
-	private _url: string = 'http://api.52tuanzu.com/v1/';
+	private _url: string = 'http://api.52tuanzu.com/v1';
 
 	private urlSearchParams: URLSearchParams;
 
@@ -22,7 +22,7 @@ export class HousingRoomService {
 
 	public getAll(): Observable < any > {
 		return this._http
-			.get(this._url + 'housing_room', {
+			.get(this._url + '/housing_room', {
 				search: this.urlSearchParams
 			})
 			.catch(this.handleError);
