@@ -10,15 +10,41 @@ import { HousingRoomContractService } from './housing-room-contract.service';
 })
 
 export class HousingRoomContractInfoComponent implements OnInit {
+	public model: Object = {
+		user: {
+			number_type: '1'
+		},
+		contract: {
+			charge_administrative: '150',
+			charge_resource: '150',
+			mode_payment: '201',
+			mode_delivery: '2',
+			rental: '0',
+			rental_adjust: '0',
+			deposit: '0',
+			date_sign: '',
+			date_start: ''
+		}
+	};
+
 	public constructor(
-		private _route: ActivatedRoute
+		private _route: ActivatedRoute,
 		private _housingRoomContractService: HousingRoomContractService
 	) {}
 
 	public ngOnInit(): void {
-		this._housingRoomContractService.getOne(this._route.params.value.housing_room_id)
+		let d = new Date();
+		this.model['contract'].date_sign = this.model['contract'].date_start = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
+
+		this._housingRoomContractService.getOne(this._route.params['value'].housing_room_id)
 			.subscribe(r => {
-				console.log(r);
+				let data = r.json().data;
+				this.model['contract'].rental = parseFloat(data.rental).toFixed(2);
+				this.model['contract'].deposit = this.model['contract'].rental * 2;
 			});
+	}
+	
+	public onSubmit(): void {
+		console.log(this.model);
 	}
 }

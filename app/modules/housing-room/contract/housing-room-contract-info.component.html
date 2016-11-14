@@ -1,26 +1,32 @@
-<form>
+<form (ngSubmit)="onSubmit()">
 	<h5>租客基本信息(乙方)</h5>
 	<hr />
 
 	<fieldset class="form-group row">
 		<legend class="col-form-legend col-sm-2">真实姓名<small class="text-muted text-warning">(*必填)</small>：</legend>
 		<div class="col-sm-4">
-			<input type="text" name="text" class="form-control" placeholder="真实姓名" autofocus required/>
+			<input type="text" name="full_name" class="form-control" placeholder="真实姓名" autofocus required [(ngModel)]="model.user.full_name"/>
 		</div>
-		<legend class="col-form-legend col-sm-2">身份证<small class="text-muted text-warning">(*必填)</small>：</legend>
+		<div class="col-sm-2">
+			<select name="number_type" class="form-control" [(ngModel)]="model.user.number_type">
+				<option value="0">请选择(*必选)</option>
+				<option value="1">身份证</option>
+				<option value="2">护照</option>
+			</select>
+		</div>
 		<div class="col-sm-4">
-			<input type="text" name="text" class="form-control" placeholder="身份证" required/>
+			<input type="text" name="number" class="form-control" required [(ngModel)]="model.user.number"/>
 		</div>
 	</fieldset>
 
 	<fieldset class="form-group row">
 		<legend class="col-form-legend col-sm-2">手机号<small class="text-muted text-warning">(*必填)</small>：</legend>
 		<div class="col-sm-4">
-			<input type="text" name="text" class="form-control" placeholder="手机号" required/>
+			<input type="text" name="phone" class="form-control" placeholder="手机号" required [(ngModel)]="model.user.phone"/>
 		</div>
 		<legend class="col-form-legend col-sm-2">邮箱<small class="text-muted text-warning">(*必填)</small>：</legend>
 		<div class="col-sm-4">
-			<input type="text" name="text" class="form-control" placeholder="邮箱" required/>
+			<input type="text" name="email" class="form-control" placeholder="邮箱" required [(ngModel)]="model.user.email"/>
 		</div>
 	</fieldset>
 
@@ -31,19 +37,19 @@
 	<fieldset class="form-group row">
 		<legend class="col-form-legend col-sm-2">房屋管家<small class="text-muted text-warning">(*必选)</small>：</legend>
 		<div class="col-sm-2">
-			<select class="form-control">
+			<select name="steward_id" class="form-control">
 				<option value="0">请选择房屋管家</option>
 			</select>
 		</div>
 		<legend class="col-form-legend col-sm-2">合同管理员<small class="text-muted text-warning">(*必选)</small>：</legend>
 		<div class="col-sm-2">
-			<select class="form-control">
+			<select name="management_id" class="form-control">
 				<option value="0">请选择合同管理员</option>
 			</select>
 		</div>
 		<legend class="col-form-legend col-sm-2">带看房者<small class="text-muted text-warning">(*必选)</small>：</legend>
 		<div class="col-sm-2">
-			<select class="form-control">
+			<select name="look_id" class="form-control">
 				<option value="0">请选择带看房者</option>
 			</select>
 		</div>
@@ -52,30 +58,30 @@
 	<fieldset class="form-group row">
 		<legend class="col-form-legend col-sm-2">承租起始日<small class="text-muted text-warning">(*必选)</small>：</legend>
 		<div class="col-sm-2">
-			<input class="form-control" type="date" required/>
+			<input type="date" name="date_start" class="form-control" required [(ngModel)]="model.contract.date_start"/>
 		</div>
 		<legend class="col-form-legend col-sm-2">承租终止日<small class="text-muted text-warning">(*必选)</small>：</legend>
 		<div class="col-sm-2">
-			<input class="form-control" type="date" required/>
+			<input type="date" name="date_end" class="form-control" required [(ngModel)]="model.contract.date_end"/>
 		</div>
 		<legend class="col-form-legend col-sm-2">签约日期<small class="text-muted text-warning">(*必选)</small>：</legend>
 		<div class="col-sm-2">
-			<input class="form-control" type="date" required/>
+			<input type="date" name="date_sign" class="form-control" required [(ngModel)]="model.contract.date_sign"/>
 		</div>
 	</fieldset>
 	
 	<fieldset class="form-group row">
 		<legend class="col-form-legend col-sm-2">租金：</legend>
 		<div class="col-sm-2">
-			<input type="text" class="form-control" disabled/>
+			<input type="text" name="rental" class="form-control" disabled [(ngModel)]="model.contract.rental"/>
 		</div>
 		<legend class="col-form-legend col-sm-2">押金<small class="text-muted text-warning">(*必填)</small>：</legend>
 		<div class="col-sm-2">
-			<input type="text" class="form-control" required/>
+			<input type="text" name="deposit" class="form-control" required [(ngModel)]="model.contract.deposit"/>
 		</div>
 		<legend class="col-form-legend col-sm-2">支付方式<small class="text-muted text-warning">(*必选)</small>：</legend>
 		<div class="col-sm-2">
-			<select class="form-control">
+			<select name="mode_payment" class="form-control" [(ngModel)]="model.contract.mode_payment">
 				<option value="0">请选择支付方式</option>
 				<option value="012">押零付十二</option>
 				<option value="201">押二付一</option>
@@ -89,22 +95,22 @@
 	<fieldset class="form-group row">
 		<legend class="col-form-legend col-sm-2">租金调整<small class="text-muted text-warning">(*必填)</small>：</legend>
 		<div class="col-sm-2">
-			<input type="text" class="form-control" required/>
+			<input type="text" name="rental_adjust" class="form-control" required [(ngModel)]="model.contract.rental_adjust"/>
 		</div>
 		<legend class="col-form-legend col-sm-2">管理费<small class="text-muted text-warning">(*必填)</small>：</legend>
 		<div class="col-sm-2">
-			<input type="text" class="form-control" required/>
+			<input type="text" name="charge_administrative" class="form-control" required [(ngModel)]="model.contract.charge_administrative"/>
 		</div>
 		<legend class="col-form-legend col-sm-2">水电燃气费<small class="text-muted text-warning">(*必填)</small>：</legend>
 		<div class="col-sm-2">
-			<input type="text" class="form-control" required/>
+			<input type="text" name="charge_resource" class="form-control" required [(ngModel)]="model.contract.charge_resource"/>
 		</div>
 	</fieldset>
 	
 	<fieldset class="form-group row">
 		<legend class="col-form-legend col-sm-2">交易方式<small class="text-muted text-warning">(*必选)</small>：</legend>
 		<div class="col-sm-2">
-			<select class="form-control">
+			<select name="mode_delivery" class="form-control" [(ngModel)]="model.contract.mode_delivery">
 				<option value="">请选择交易方式</option>
 				<option value="0">其他</option>
 				<option value="1">银行转账</option>
@@ -115,4 +121,6 @@
 			</select>
 		</div>
 	</fieldset>
+	
+	<button type="submit" class="btn btn-primary btn-block">提交</button>
 </form>
