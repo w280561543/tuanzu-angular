@@ -1,0 +1,53 @@
+.print-content {
+	width: 20cm;
+	margin: auto;
+	font-family: simsun;
+}
+
+u {
+	font-weight: bold;
+}
+
+.table-bordered th,
+.table-bordered td {
+	border: 1px solid #000 !important;
+}
+
+@media print {
+	*,
+	*:before,
+	*:after {
+		color: #000 !important;
+		text-shadow: none !important;
+		background: transparent !important;
+		-webkit-box-shadow: none !important;
+		box-shadow: none !important;
+	}
+	body * {
+		visibility: hidden;
+	}
+	body {
+		font-family: '黑体';
+		-webkit-print-color-adjust: exact;
+		font-weight: 600;
+	}
+	.print {
+		position: absolute;
+		top: 2cm;
+	}
+	.print-only,
+	.print-only * {
+		visibility: visible;
+	}
+	.print-hide,
+	.print-hide * {
+		visibility: hidden;
+	}
+	.table {
+		font-size: 16px;
+	}
+	.table-bordered th,
+	.table-bordered td {
+		border: 1px solid #000 !important;
+	}
+}
