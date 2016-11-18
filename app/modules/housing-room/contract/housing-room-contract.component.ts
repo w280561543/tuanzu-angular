@@ -1,10 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 
+import { HousingRoomContractService } from './housing-room-contract.service';
+
 @Component({
 	moduleId: module.id,
 	templateUrl: 'housing-room-contract.component.html'
 })
 export class HousingRoomContractComponent implements OnInit {
+	public constructor(
+		private _housingRoomContractService: HousingRoomContractService
+	) {}
+
 	public step: Array < any > ;
 
 	public ngOnInit(): void {

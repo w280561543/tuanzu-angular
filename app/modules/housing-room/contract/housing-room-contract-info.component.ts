@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 
-import { HousingRoomContractService } from './housing-room-contract.service';
+import { HousingRoomContractComponent } from './housing-room-contract.component';
+import { HousingRoomContractService }   from './housing-room-contract.service';
 
 @Component({
 	moduleId: module.id,
@@ -29,6 +30,7 @@ export class HousingRoomContractInfoComponent implements OnInit {
 
 	public constructor(
 		private _route: ActivatedRoute,
+		private _housingRoomContractComponent: HousingRoomContractComponent,
 		private _housingRoomContractService: HousingRoomContractService
 	) {}
 
@@ -45,6 +47,6 @@ export class HousingRoomContractInfoComponent implements OnInit {
 	}
 	
 	public onSubmit(): void {
-		console.log(this.model);
+		this._housingRoomContractComponent.active(1);
 	}
 }

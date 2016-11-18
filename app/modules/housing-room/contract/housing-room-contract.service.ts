@@ -11,7 +11,7 @@ export class HousingRoomContractService {
 	public constructor(
 		private _http: Http
 	) {}
-	
+
 	public getOne(housing_room_id: number): Observable<any> {
 		return this._http
 				.get(`${this._url}/housing_room_contract/${housing_room_id}`)

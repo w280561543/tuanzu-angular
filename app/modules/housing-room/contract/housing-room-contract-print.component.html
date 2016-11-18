@@ -1,27 +1,35 @@
 <div class="card">
 	<div class="card-header">
 		<ul class="nav nav-pills card-header-pills float-xs-left">
-			<li class="nav-item"><a class="nav-link btn-sm" href="javascript:void(0);">租客合同</a></li>
-			<li class="nav-item"><a class="nav-link btn-sm active" href="javascript:void(0);">入住指南</a></li>
+			<li class="nav-item"><a class="nav-link btn-sm active" href="javascript:void(0);">租客合同</a></li>
+			<li class="nav-item"><a class="nav-link btn-sm" href="javascript:void(0);">住客指南</a></li>
 			<li class="nav-item"><a class="nav-link btn-sm" href="javascript:void(0);">水电燃气</a></li>
 			<li class="nav-item"><a class="nav-link btn-sm" href="javascript:void(0);">打印账单</a></li>
 		</ul>
 	</div>
 	<div class="card-block tab-content">
-		<div class="tab-pane">
-			租客合同
-		</div>
-	
+		<!-- 租客合同 start -->
 		<div class="tab-pane active">
-			入住指南
+			<housing-room-contract-print-meal></housing-room-contract-print-meal>
 		</div>
-	
+		<!-- 租客合同 end -->
+		<!-- 住客指南 start -->
+		<div class="tab-pane">
+			住客指南
+		</div>
+		<!-- 住客指南 end -->
+		<!-- 水电燃气 start -->
 		<div class="tab-pane">
 			水电燃气
 		</div>
-		
+		<!-- 水电燃气 end -->
+		<!-- 打印账单 start -->
 		<div class="tab-pane">
 			打印账单
 		</div>
+		<!-- 打印账单 end -->
+	</div>
+	<div class="card-footer text-sm-right">
+		<button type="button" class="btn btn-primary btn-sm" (click)="onNext()">下一步</button>
 	</div>
 </div>

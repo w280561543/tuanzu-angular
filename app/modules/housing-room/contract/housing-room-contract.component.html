@@ -12,20 +12,16 @@
 		</ul>
 	</div>
 	<div class="card-block tab-content">
-		<div class="tab-pane active" *ngIf="step[0].active">
-			<housing-room-contract-info></housing-room-contract-info>
+		<div class="tab-pane active" [class.active]="step[0].active">
+			<housing-room-contract-info #info></housing-room-contract-info>
 		</div>
 
-		<div class="tab-pane active" *ngIf="step[1].active">
-			<housing-room-contract-print></housing-room-contract-print>
+		<div class="tab-pane active" [class.active]="step[1].active">
+			<housing-room-contract-print [model]="info.model"></housing-room-contract-print>
 		</div>
 
-		<div class="tab-pane active" *ngIf="step[2].active">
+		<div class="tab-pane active" [class.active]="step[2].active">
 			合同提交
 		</div>
-	</div>
-	<div class="card-footer text-xs-right">
-		<button type="button" class="btn btn-outline-primary btn-sm">上一步</button>
-		<button type="button" class="btn btn-outline-primary btn-sm">下一步</button>
 	</div>
 </div>

@@ -1,4 +1,4 @@
-<form (ngSubmit)="onSubmit()">
+<form (ngSubmit)="onSubmit()" #contractFrom="ngForm">
 	<h5>租客基本信息(乙方)</h5>
 	<hr />
 
@@ -122,5 +122,5 @@
 		</div>
 	</fieldset>
 	
-	<button type="submit" class="btn btn-primary btn-block">提交</button>
+	<button type="submit" class="btn btn-primary btn-block" [disabled]="!contractFrom.form.valid" (keydown.enter)="contractFrom.form.valid">提交</button>
 </form>
