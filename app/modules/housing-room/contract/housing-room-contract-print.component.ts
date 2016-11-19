@@ -6,8 +6,7 @@ import { HousingRoomContractService }   from './housing-room-contract.service';
 @Component({
 	moduleId: module.id,
 	selector: 'housing-room-contract-print',
-	templateUrl: 'housing-room-contract-print.component.html',
-	styleUrls: ['housing-room-contract-print.component.css']
+	templateUrl: 'housing-room-contract-print.component.html'
 })
 export class HousingRoomContractPrintComponent {
 	

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
+import { Observable } from 'rxjs/Observable';
 
 import { HousingRoomContractService } from './housing-room-contract.service';
 
@@ -7,13 +10,20 @@ import { HousingRoomContractService } from './housing-room-contract.service';
 	templateUrl: 'housing-room-contract.component.html'
 })
 export class HousingRoomContractComponent implements OnInit {
+	public step: Array < any > ;
+	
+	public housingRoomContract: Observable< any >;
+	
+	public data: Object = {};
+	
 	public constructor(
+		private _route: ActivatedRoute,
 		private _housingRoomContractService: HousingRoomContractService
 	) {}
 
-	public step: Array < any > ;
-
 	public ngOnInit(): void {
+		this.housingRoomContract = this._housingRoomContractService.getOne(this._route.params['value'].housing_room_id);
+
 		this.step = [{
 			active: true,
 		}, {
@@ -21,6 +31,10 @@ export class HousingRoomContractComponent implements OnInit {
 		}, {
 			active: false,
 		}];
+		this.housingRoomContract.subscribe(r => {
+			this.data = r.json().data;
+			console.log(this.data);
+		})
 	}
 
 	public active(n: number): void {

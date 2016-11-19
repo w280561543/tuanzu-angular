@@ -1,7 +1,7 @@
 <ol class="breadcrumb">
 	<li class="breadcrumb-item"><a routerLink="/dashboard">首页</a></li>
 	<li class="breadcrumb-item"><a routerLink="/housing-room">租客合同</a></li>
-	<li class="breadcrumb-item active">签约</li>
+	<li class="breadcrumb-item active">签约<small>({{ data.base_community?.name }}{{ data.base_community_number?.name }}-{{ data.housing?.floor }}{{ data.housing?.name }}{{ data.housing_room?.tabs }}房)</small></li>
 </ol>
 <div class="card">
 	<div class="card-header">

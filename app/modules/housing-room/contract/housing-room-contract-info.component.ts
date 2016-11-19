@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
 
 import { HousingRoomContractComponent } from './housing-room-contract.component';
-import { HousingRoomContractService }   from './housing-room-contract.service';
 
 @Component({
 	moduleId: module.id,
@@ -29,19 +27,17 @@ export class HousingRoomContractInfoComponent implements OnInit {
 	};
 
 	public constructor(
-		private _route: ActivatedRoute,
-		private _housingRoomContractComponent: HousingRoomContractComponent,
-		private _housingRoomContractService: HousingRoomContractService
+		private _housingRoomContractComponent: HousingRoomContractComponent
 	) {}
 
 	public ngOnInit(): void {
 		let d = new Date();
 		this.model['contract'].date_sign = this.model['contract'].date_start = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
 
-		this._housingRoomContractService.getOne(this._route.params['value'].housing_room_id)
+		this._housingRoomContractComponent.housingRoomContract
 			.subscribe(r => {
 				let data = r.json().data;
-				this.model['contract'].rental = parseFloat(data.rental).toFixed(2);
+				this.model['contract'].rental = parseFloat(data['housing_room'].rental).toFixed(2);
 				this.model['contract'].deposit = this.model['contract'].rental * 2;
 			});
 	}
