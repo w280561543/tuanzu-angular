@@ -1,4 +1,5 @@
 /* reset bootstrap start */
+
 .btn {
 	position: relative;
 	border-width: 0;
@@ -16,5 +17,63 @@
 	border-radius: 0;
 }
 
+@media print {
+	.table td,
+	.table th {
+		padding: 2px;
+		vertical-align: middle;
+	}
+}
+
 
 /* reset bootstrap end */
+
+
+/* print start */
+
+@media print {
+	*,
+	*:before,
+	*:after {
+		color: #000 !important;
+		text-shadow: none !important;
+		background: transparent !important;
+		-webkit-box-shadow: none !important;
+		box-shadow: none !important;
+	}
+	body * {
+		visibility: hidden;
+	}
+	body {
+		font-family: '黑体';
+		-webkit-print-color-adjust: exact;
+		font-weight: 600;
+	}
+	.print {
+		position: absolute;
+		top: -10cm;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	}
+	.print-content {
+		position: relative;
+	}
+	.print-only,
+	.print-only * {
+		visibility: visible;
+	}
+	.print-hide,
+	.print-hide * {
+		visibility: hidden;
+	}
+	.print-fs-12 {
+		font-size: 12px;
+	}
+	.print-mb-10 {
+		margin-bottom: 10cm;
+	}
+}
+
+
+/* print end */
