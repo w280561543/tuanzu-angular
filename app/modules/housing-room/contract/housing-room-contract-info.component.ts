@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { HousingRoomContractComponent } from './housing-room-contract.component';
+import { HousingRoomContractService }   from './housing-room-contract.service';
 
 @Component({
 	moduleId: module.id,
@@ -27,22 +28,23 @@ export class HousingRoomContractInfoComponent implements OnInit {
 	};
 
 	public constructor(
-		private _housingRoomContractComponent: HousingRoomContractComponent
+		private _housingRoomContractComponent: HousingRoomContractComponent,
+		private _housingRoomContractService: HousingRoomContractService
 	) {}
 
 	public ngOnInit(): void {
 		let d = new Date();
 		this.model['contract'].date_sign = this.model['contract'].date_start = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
 
-		this._housingRoomContractComponent.housingRoomContract
-			.subscribe(r => {
-				let data = r.json().data;
-				this.model['contract'].rental = parseFloat(data['housing_room'].rental).toFixed(2);
-				this.model['contract'].deposit = this.model['contract'].rental * 2;
-			});
+		this._housingRoomContractService.data$
+		.subscribe(r => {
+			this.model['contract'].rental = parseFloat(r['housing_room'].rental).toFixed(2);
+			this.model['contract'].deposit = this.model['contract'].rental * 2;
+		});
+		
 	}
 	
 	public onSubmit(): void {
-		this._housingRoomContractComponent.active(1);
+		this._housingRoomContractComponent.onActive(1);
 	}
 }

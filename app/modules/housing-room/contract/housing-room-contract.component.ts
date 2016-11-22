@@ -11,9 +11,7 @@ import { HousingRoomContractService } from './housing-room-contract.service';
 })
 export class HousingRoomContractComponent implements OnInit {
 	public step: Array < any > ;
-	
-	public housingRoomContract: Observable< any >;
-	
+
 	public data: Object = {};
 	
 	public constructor(
@@ -22,7 +20,12 @@ export class HousingRoomContractComponent implements OnInit {
 	) {}
 
 	public ngOnInit(): void {
-		this.housingRoomContract = this._housingRoomContractService.getOne(this._route.params['value'].housing_room_id);
+		this._housingRoomContractService
+			.getOne(this._route.params['value'].housing_room_id)
+			.subscribe(r => {
+				this.data = r.json().data;
+				this._housingRoomContractService.setData(this.data);
+			});
 
 		this.step = [{
 			active: true,
@@ -31,13 +34,9 @@ export class HousingRoomContractComponent implements OnInit {
 		}, {
 			active: false,
 		}];
-		this.housingRoomContract.subscribe(r => {
-			this.data = r.json().data;
-			console.log(this.data);
-		})
 	}
 
-	public active(n: number): void {
+	public onActive(n: number): void {
 		if(!this.step[n].active) {
 			for(let i in this.step) {
 				this.step[i].active = false;
