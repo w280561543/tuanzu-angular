@@ -10,7 +10,13 @@ import { HousingRoomContractService } from './housing-room-contract.service';
 	templateUrl: 'housing-room-contract.component.html'
 })
 export class HousingRoomContractComponent implements OnInit {
-	public step: Array < any > ;
+	public step: Array < any > = [{
+			active: true,
+		}, {
+			active: false,
+		}, {
+			active: false,
+		}];
 
 	public data: Object = {};
 	
@@ -26,14 +32,6 @@ export class HousingRoomContractComponent implements OnInit {
 				this.data = r.json().data;
 				this._housingRoomContractService.setData(this.data);
 			});
-
-		this.step = [{
-			active: true,
-		}, {
-			active: false,
-		}, {
-			active: false,
-		}];
 	}
 
 	public onActive(n: number): void {

@@ -9,9 +9,11 @@ import 'rxjs/add/operator/catch';
 export class HousingRoomContractService {
 	private _url: string = 'http://api.52tuanzu.com/v1';
 
-	private dataSource = new Subject < Object > ();
+	private dataSource  = new Subject < Object > ();
+	private modelSource = new Subject < Object > ();
 
-	public data$ = this.dataSource.asObservable();
+	public data$  = this.dataSource.asObservable();
+	public model$ = this.modelSource.asObservable();
 
 	public constructor(
 		private _http: Http
@@ -20,7 +22,11 @@ export class HousingRoomContractService {
 	public setData(v: Object) {
 		this.dataSource.next(v);
 	}
-	
+
+	public setModel(v: Object) {
+		this.modelSource.next(v);
+	}
+
 	public getOne(housing_room_id: number): Observable < any > {
 		return this._http
 			.get(`${this._url}/housing_room_contract/${housing_room_id}`)

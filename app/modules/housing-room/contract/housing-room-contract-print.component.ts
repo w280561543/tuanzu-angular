@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { HousingRoomContractComponent } from './housing-room-contract.component';
 import { HousingRoomContractService }   from './housing-room-contract.service';
@@ -9,25 +9,12 @@ import { HousingRoomContractService }   from './housing-room-contract.service';
 	templateUrl: 'housing-room-contract-print.component.html'
 })
 export class HousingRoomContractPrintComponent {
-	@Input() public model: Object;
-	
-	public active: Array < any > ;
+	public active: number = 1;
 	
 	public constructor(
 		private _housingRoomContractComponent: HousingRoomContractComponent
-	) {
-		this.active = [true, false, false ,false];
-	}
-	
-	public  onActive(n: number) {
-		if(!this.active[n]) {
-			for(let i in this.active) {
-				this.active[i] = false;
-			}
-			this.active[n] = true;
-		}
-	}
-	
+	) {}
+
 	public onNext(): void {
 		this._housingRoomContractComponent.onActive(2);
 	}
@@ -39,7 +26,17 @@ export class HousingRoomContractPrintComponent {
 	selector: 'housing-room-contract-print-meal',
 	templateUrl: 'housing-room-contract-print-meal.component.html'
 })
-export class HousingRoomContractPrintMealComponent {}
+export class HousingRoomContractPrintMealComponent {
+	public data: Object = {};
+	public constructor(
+		private _housingRoomContractService: HousingRoomContractService
+	) {
+		_housingRoomContractService.model$.subscribe(r => {
+			console.log(r);
+			this.data = r;
+		})
+	}
+}
 
 @Component({
 	moduleId: module.id,

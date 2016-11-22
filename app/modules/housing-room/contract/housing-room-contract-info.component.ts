@@ -35,7 +35,6 @@ export class HousingRoomContractInfoComponent implements OnInit {
 	public ngOnInit(): void {
 		let d = new Date();
 		this.model['contract'].date_sign = this.model['contract'].date_start = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
-
 		this._housingRoomContractService.data$
 		.subscribe(r => {
 			this.model['contract'].rental = parseFloat(r['housing_room'].rental).toFixed(2);
@@ -45,6 +44,8 @@ export class HousingRoomContractInfoComponent implements OnInit {
 	}
 	
 	public onSubmit(): void {
+		this.model['contract'].rental = parseFloat(this.model['contract'].rental);
 		this._housingRoomContractComponent.onActive(1);
+		this._housingRoomContractService.setModel(this.model);
 	}
 }
