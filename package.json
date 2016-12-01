@@ -16,15 +16,15 @@
 	},
 	"homepage": "https://github.com/w280561543/tuanzu-angular#readme",
 	"dependencies": {
-		"@angular/common": "~2.2.3",
-		"@angular/compiler": "~2.2.3",
-		"@angular/core": "~2.2.3",
-		"@angular/forms": "~2.2.3",
-		"@angular/http": "~2.2.3",
-		"@angular/platform-browser": "~2.2.3",
-		"@angular/platform-browser-dynamic": "~2.2.3",
-		"@angular/router": "~3.2.3",
-		"@angular/upgrade": "~2.2.3",
+		"@angular/common": "~2.2.4",
+		"@angular/compiler": "~2.2.4",
+		"@angular/core": "~2.2.4",
+		"@angular/forms": "~2.2.4",
+		"@angular/http": "~2.2.4",
+		"@angular/platform-browser": "~2.2.4",
+		"@angular/platform-browser-dynamic": "~2.2.4",
+		"@angular/router": "~3.2.4",
+		"@angular/upgrade": "~2.2.4",
 
 		"angular-in-memory-web-api": "~0.1.16",
 
@@ -44,6 +44,6 @@
 
 		"@types/node": "^6.0.51",
 		"@types/jasmine": "^2.5.38",
-		"@types/selenium-webdriver": "^2.53.35"
+		"@types/selenium-webdriver": "^2.53.36"
 	}
 }
