@@ -31,8 +31,7 @@ export class HousingRoomContractPrintMealComponent {
 	public constructor(
 		private _housingRoomContractService: HousingRoomContractService
 	) {
-		_housingRoomContractService.model$.subscribe(r => {
-			console.log(r);
+		_housingRoomContractService.model$.subscribe(r => {;
 			this.data = r;
 		})
 	}
