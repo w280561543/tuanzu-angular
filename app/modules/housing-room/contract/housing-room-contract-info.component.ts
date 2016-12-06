@@ -34,7 +34,7 @@ export class HousingRoomContractInfoComponent implements OnInit {
 
 	public ngOnInit(): void {
 		let d = new Date();
-		let dt = d.getFullYear();
+		let dt: any = d.getFullYear();
 		if((d.getMonth() + 1) < 10) {
 			dt += '-0' + (d.getMonth() + 1);
 		} else {
@@ -54,7 +54,7 @@ export class HousingRoomContractInfoComponent implements OnInit {
 		
 	}
 	
-	public onSubmit(): void {
+	public onNext(): void {
 		this.model['contract'].rental = parseFloat(this.model['contract'].rental);
 		this._housingRoomContractComponent.onActive(1);
 		this._housingRoomContractService.setModel(this.model);
