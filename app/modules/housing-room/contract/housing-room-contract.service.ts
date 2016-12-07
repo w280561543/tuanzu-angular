@@ -7,7 +7,7 @@ import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class HousingRoomContractService {
-	private _url: string = 'http://api.52tuanzu.com/v1';
+	private _url: string = 'http://api.52tuanzu.com/v1/housing_room_contract';
 
 	private dataSource  = new Subject < Object > ();
 	private modelSource = new Subject < Object > ();
@@ -29,7 +29,13 @@ export class HousingRoomContractService {
 
 	public getOne(housing_room_id: number): Observable < any > {
 		return this._http
-			.get(`${this._url}/housing_room_contract/${housing_room_id}`)
+			.get(this._url + '/' + housing_room_id)
+			.catch(this.handleError);
+	}
+
+	public create(model: Object): Observable< any > {
+		return this._http
+			.post(this._url + '/create', JSON.stringify(model))
 			.catch(this.handleError);
 	}
 
