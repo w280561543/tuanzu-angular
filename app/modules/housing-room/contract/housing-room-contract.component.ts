@@ -10,7 +10,7 @@ import { HousingRoomContractService } from './housing-room-contract.service';
 	templateUrl: 'housing-room-contract.component.html'
 })
 export class HousingRoomContractComponent implements OnInit {
-	public step: Array < any > = [{
+	private step: Array < any > = [{
 			active: true,
 		}, {
 			active: false,
@@ -18,8 +18,9 @@ export class HousingRoomContractComponent implements OnInit {
 			active: false,
 		}];
 
-	public data: Object = {};
-	
+	private data: Object = {};
+	private model: Object = {};
+
 	public constructor(
 		private _route: ActivatedRoute,
 		private _housingRoomContractService: HousingRoomContractService
@@ -33,6 +34,10 @@ export class HousingRoomContractComponent implements OnInit {
 				this._housingRoomContractService.setData(this.data);
 			});
 	}
+	
+	public setModel(model: Object): void {
+		this.model = model;
+	}
 
 	public onActive(n: number): void {
 		if(!this.step[n].active) {
@@ -43,4 +48,12 @@ export class HousingRoomContractComponent implements OnInit {
 		}
 	}
 
+	public onSubmit(): void {
+		let model = this.model;
+		model['contract'].area_id = this.data['base_area'].area_id;
+		this._housingRoomContractService.create(model)
+		.subscribe(r => {
+			console.log(r);
+		});
+	}
 }
