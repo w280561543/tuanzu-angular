@@ -57,6 +57,7 @@ export class HousingRoomContractInfoComponent implements OnInit {
 	public onNext(): void {
 		this.model['contract'].rental = parseFloat(this.model['contract'].rental);
 		this._housingRoomContractComponent.onActive(1);
+		this._housingRoomContractComponent.setModel(this.model);
 		this._housingRoomContractService.setModel(this.model);
 	}
 }
