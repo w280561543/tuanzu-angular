@@ -1,9 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {
+	Component,
+	OnInit
+} from '@angular/core';
+import {
+	ActivatedRoute
+} from '@angular/router';
 
-import { Observable } from 'rxjs/Observable';
+import {
+	Observable
+} from 'rxjs/Observable';
 
-import { HousingRoomContractService } from './housing-room-contract.service';
+import {
+	HousingRoomContractService
+} from './housing-room-contract.service';
 
 @Component({
 	moduleId: module.id,
@@ -11,12 +20,12 @@ import { HousingRoomContractService } from './housing-room-contract.service';
 })
 export class HousingRoomContractComponent implements OnInit {
 	private step: Array < any > = [{
-			active: true,
-		}, {
-			active: false,
-		}, {
-			active: false,
-		}];
+		active: true,
+	}, {
+		active: false,
+	}, {
+		active: false,
+	}];
 
 	private data: Object = {};
 	private model: Object = {};
@@ -34,7 +43,7 @@ export class HousingRoomContractComponent implements OnInit {
 				this._housingRoomContractService.setData(this.data);
 			});
 	}
-	
+
 	public setModel(model: Object): void {
 		this.model = model;
 	}
@@ -50,10 +59,17 @@ export class HousingRoomContractComponent implements OnInit {
 
 	public onSubmit(): void {
 		let model = this.model;
+		model['contract'].housing_room_id = this.data['housing_room'].housing_room_id;
 		model['contract'].area_id = this.data['base_area'].area_id;
+
+		// #TODO 一步一步添加.
+		model['contract'].steward_id = 0;
+		model['contract'].management_id = 0;
+		model['contract'].look_id = 0;
+
 		this._housingRoomContractService.create(model)
-		.subscribe(r => {
-			console.log(r);
-		});
+			.subscribe(r => {
+				console.log(r);
+			});
 	}
 }
