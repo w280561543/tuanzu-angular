@@ -12,6 +12,9 @@ import { HousingRoomContractService }   from './housing-room-contract.service';
 export class HousingRoomContractInfoComponent implements OnInit {
 	public model: Object = {
 		user: {
+			
+		},
+		user_info: {
 			number_type: '1'
 		},
 		contract: {
