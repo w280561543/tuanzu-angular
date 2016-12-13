@@ -1,18 +1,9 @@
-import {
-	Component,
-	OnInit
-} from '@angular/core';
-import {
-	ActivatedRoute
-} from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
-import {
-	Observable
-} from 'rxjs/Observable';
+import { Observable } from 'rxjs/Observable';
 
-import {
-	HousingRoomContractService
-} from './housing-room-contract.service';
+import { HousingRoomContractService } from './housing-room-contract.service';
 
 @Component({
 	moduleId: module.id,
@@ -32,6 +23,7 @@ export class HousingRoomContractComponent implements OnInit {
 
 	public constructor(
 		private _route: ActivatedRoute,
+		private _router :Router,
 		private _housingRoomContractService: HousingRoomContractService
 	) {}
 
@@ -69,7 +61,10 @@ export class HousingRoomContractComponent implements OnInit {
 
 		this._housingRoomContractService.create(model)
 			.subscribe(r => {
-				console.log(r);
+				let b = r.json();
+				if(b.code == 1) {
+					this._router.navigate(['/housing-room']);
+				}
 			});
 	}
 }
