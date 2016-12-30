@@ -7,15 +7,24 @@ import { HousingService } from '../housing.service';
 	templateUrl: 'housing-dashboard.component.html'
 })
 export class HousingDashboardComponent implements OnInit {
-
-	public data: any = {};
+	public rows: Array < any > = [];
 
 	public filters: any = {};
+	
+	public page: any = {
+		"config": {
+			"currentPage": 1,
+			"itemsPerPage": 15,
+			"totalItems": 0
+		},
+		"totalPages": 0,
+		"pages": []
+	};
 
-	public pageConfig: any = {};
-	
 	public isOpen: Array<number> = [];
-	
+
+	private data: any = {};
+
 	public constructor(
 		private _housingService: HousingService
 	) {}
@@ -24,34 +33,71 @@ export class HousingDashboardComponent implements OnInit {
 		this.getHousing();
 	}
 
-	public onFilter(): void {
-		if(typeof this.filters === 'object' && JSON.stringify(this.filters) !== '{}') {
-			this._housingService.setPage(1);
-			this._housingService.setFilters(JSON.stringify(this.filters));
-			this.getHousing();
-		}
-	}
-
 	public getAll(): void {
-		this._housingService.setPage(1);
-		this._housingService.deleteFilters();
-		this.getHousing();
 		this.filters = {};
-	}
-
-	public pageChanged(page: number): void {
-		this._housingService.setPage(page);
-		this.getHousing();
 	}
 
 	public getHousing(): void {
 		this._housingService.getAll()
 			.subscribe((r: any) => {
 				this.data = r.json().data;
-				this.pageConfig = {
-					current: this.data.current,
-					totalPages: this.data.total_pages
-				}
+				this.page.config.totalItems = this.data.length;
+				this.onChangeTable();
 			});
+	}
+
+	public changePage(p: any): void {
+		let start = (p.currentPage - 1) * p.itemsPerPage;
+		let end = p.itemsPerPage > -1 ? (start + p.itemsPerPage): this.data.length;
+		this.rows = this.data.slice(start, end);
+	}
+
+	public onChangeTable(): void {
+		this.changePage(this.page.config);
+		this.getPages();
+	}
+
+	public selectPage(currentPage: number, event ? : MouseEvent): void {
+		if(event) {
+			event.preventDefault();
+		}
+
+		if(this.page.config.currentPage !== currentPage) {
+			this.page.config.currentPage = currentPage;
+			this.onChangeTable();
+		}
+	}
+
+	private getPages(): void {
+		this.calculateTotalPages();
+		let pages:any[] = [];
+		
+		let maxSize: number = 4;
+		
+		let startPage = 1;
+		let endPage = this.page.totalPages;
+		
+		startPage = Math.max(this.page.config.currentPage - Math.floor(maxSize / 2), 1);
+		endPage = startPage + maxSize - 1;
+		
+		if(endPage > this.page.totalPages) {
+			endPage = this.page.totalPages;
+			startPage = endPage - maxSize + 1;
+		}
+		
+		for(let n = startPage; n <= endPage; n++) {
+			pages.push({
+				number: n,
+				text: n.toString(),
+				active: n === this.page.config.currentPage
+			});
+		}
+
+		this.page.pages = pages;
+	}
+
+	private calculateTotalPages(): void {
+		let totalPages = this.page.config.itemsPerPage < 1 ? 1 : Math.ceil(this.page.config.totalItems / this.page.config.itemsPerPage);
+		this.page.totalPages = Math.max(totalPages || 0, 1);
 	}
 }
