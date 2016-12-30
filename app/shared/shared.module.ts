@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 import { SidebarComponent }    from './sidebar/sidebar.component';
-import { PaginationComponent } from './pagination/pagination.component';
 
 @NgModule({
 	imports: [
@@ -11,12 +10,10 @@ import { PaginationComponent } from './pagination/pagination.component';
 		RouterModule
 	],
 	exports: [
-		SidebarComponent,
-		PaginationComponent
+		SidebarComponent
 	],
 	declarations: [
-		SidebarComponent,
-		PaginationComponent
+		SidebarComponent
 	]
 })
 export class SharedModule {
