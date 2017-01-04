@@ -47,7 +47,7 @@ export class HousingDashboardComponent implements OnInit {
 			});
 	}
 
-	public onChangeFilter(): Array < any > {
+	public onChangeFilter(): void {
 		if(JSON.stringify(this.filters) !== '{}') {
 			let filteredData: Array < any > = this.data;
 			for(let f in this.filters) {
