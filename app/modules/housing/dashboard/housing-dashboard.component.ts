@@ -1,27 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import {
+	Component,
+	OnInit
+} from '@angular/core';
 
-import { HousingService } from '../housing.service';
+import {
+	HousingService
+} from '../housing.service';
 
 @Component({
 	moduleId: module.id,
 	templateUrl: 'housing-dashboard.component.html'
 })
 export class HousingDashboardComponent implements OnInit {
-	public rows: Array < any > = [];
-
 	public filters: any = {};
-	
+
 	public page: any = {
 		"config": {
 			"currentPage": 1,
 			"itemsPerPage": 15,
 			"totalItems": 0
 		},
+		"rows": [],
+		"filteredData": [],
+		"isOpen": [],
 		"totalPages": 0,
 		"pages": []
 	};
-
-	public isOpen: Array<number> = [];
 
 	private data: any = {};
 
@@ -33,28 +37,32 @@ export class HousingDashboardComponent implements OnInit {
 		this.getHousing();
 	}
 
-	public getAll(): void {
-		this.filters = {};
-	}
-
 	public getHousing(): void {
 		this._housingService.getAll()
 			.subscribe((r: any) => {
 				this.data = r.json().data;
 				this.page.config.totalItems = this.data.length;
-				this.onChangeTable();
+				this.page.totalPages = this.calculateTotalPages(this.page.config);
+				this.changeTable();
 			});
 	}
 
-	public changePage(p: any): void {
-		let start = (p.currentPage - 1) * p.itemsPerPage;
-		let end = p.itemsPerPage > -1 ? (start + p.itemsPerPage): this.data.length;
-		this.rows = this.data.slice(start, end);
-	}
-
-	public onChangeTable(): void {
-		this.changePage(this.page.config);
-		this.getPages();
+	public onChangeFilter(): Array < any > {
+		if(JSON.stringify(this.filters) !== '{}') {
+			let filteredData: Array < any > = this.data;
+			for(let f in this.filters) {
+				if(this.filters[f]) {
+					filteredData = filteredData.filter((i: any) => {
+						return i[f].match(this.filters[f]);
+					});
+				}
+			}
+			this.page.config.totalItems = filteredData.length;
+			this.page.totalPages = this.calculateTotalPages(this.page.config);
+			this.page.config.currentPage = 1;
+			this.page.filteredData = filteredData;
+			this.changeTable();
+		}
 	}
 
 	public selectPage(currentPage: number, event ? : MouseEvent): void {
@@ -64,40 +72,44 @@ export class HousingDashboardComponent implements OnInit {
 
 		if(this.page.config.currentPage !== currentPage) {
 			this.page.config.currentPage = currentPage;
-			this.onChangeTable();
+			this.changeTable();
 		}
 	}
+	
+	private changeTable(): void {
+		this.page.rows = this.changePage(this.page.config, this.page.filteredData.length > 0 ? this.page.filteredData : this.data);
+		this.page.pages = this.getPages(this.page);
+	}
 
-	private getPages(): void {
-		this.calculateTotalPages();
-		let pages:any[] = [];
-		
+	private calculateTotalPages(pc: any): number {
+		return Math.max(pc.itemsPerPage < 1 ? 1 : Math.ceil(pc.totalItems / pc.itemsPerPage) || 0, 1);
+	}
+
+	private changePage(pc: any, d: Array < any > ): Array < any > {
+		let start = (pc.currentPage - 1) * pc.itemsPerPage;
+		let end = pc.itemsPerPage > -1 ? (start + pc.itemsPerPage) : d.length;
+		return d.slice(start, end);
+	}
+
+	private getPages(p: any): Array < any > {
+		let pages: any[] = [];
+
 		let maxSize: number = 4;
-		
+
 		let startPage = 1;
-		let endPage = this.page.totalPages;
-		
-		startPage = Math.max(this.page.config.currentPage - Math.floor(maxSize / 2), 1);
-		endPage = startPage + maxSize - 1;
-		
-		if(endPage > this.page.totalPages) {
-			endPage = this.page.totalPages;
-			startPage = endPage - maxSize + 1;
-		}
-		
+		let endPage = p.totalPages;
+
+		startPage = ((Math.ceil(p.config.currentPage / maxSize) - 1) * maxSize) + 1;
+		endPage = Math.min(startPage + maxSize - 1, p.totalPages);
+
 		for(let n = startPage; n <= endPage; n++) {
 			pages.push({
 				number: n,
 				text: n.toString(),
-				active: n === this.page.config.currentPage
+				active: n === p.config.currentPage
 			});
 		}
 
-		this.page.pages = pages;
-	}
-
-	private calculateTotalPages(): void {
-		let totalPages = this.page.config.itemsPerPage < 1 ? 1 : Math.ceil(this.page.config.totalItems / this.page.config.itemsPerPage);
-		this.page.totalPages = Math.max(totalPages || 0, 1);
+		return pages;
 	}
 }
