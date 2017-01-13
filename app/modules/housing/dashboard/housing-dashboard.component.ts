@@ -99,7 +99,8 @@ export class HousingDashboardComponent implements OnInit {
 		let startPage = 1;
 		let endPage = p.totalPages;
 
-		startPage = ((Math.ceil(p.config.currentPage / maxSize) - 1) * maxSize) + 1;
+		//startPage = ((Math.ceil(p.config.currentPage / maxSize) - 1) * maxSize) + 1;
+		startPage = Math.max(p.config.currentPage - Math.floor(maxSize / 2), 1);
 		endPage = Math.min(startPage + maxSize - 1, p.totalPages);
 
 		for(let n = startPage; n <= endPage; n++) {
