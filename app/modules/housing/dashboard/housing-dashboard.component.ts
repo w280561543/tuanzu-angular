@@ -94,7 +94,7 @@ export class HousingDashboardComponent implements OnInit {
 	private getPages(p: any): Array < any > {
 		let pages: any[] = [];
 
-		let maxSize: number = 4;
+		let maxSize: number = 5;
 
 		let startPage = 1;
 		let endPage = p.totalPages;
