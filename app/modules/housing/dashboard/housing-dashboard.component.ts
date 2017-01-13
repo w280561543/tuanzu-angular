@@ -1,11 +1,6 @@
-import {
-	Component,
-	OnInit
-} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-import {
-	HousingService
-} from '../housing.service';
+import { HousingService } from '../housing.service';
 
 @Component({
 	moduleId: module.id,
@@ -75,7 +70,7 @@ export class HousingDashboardComponent implements OnInit {
 			this.changeTable();
 		}
 	}
-	
+
 	private changeTable(): void {
 		this.page.rows = this.changePage(this.page.config, this.page.filteredData.length > 0 ? this.page.filteredData : this.data);
 		this.page.pages = this.getPages(this.page);
