@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response, URLSearchParams } from '@angular/http';
+import { Http, Response } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
@@ -8,23 +8,13 @@ import 'rxjs/add/operator/catch';
 export class HousingRoomService {
 	private _url: string = 'http://api.52tuanzu.com/v1';
 
-	private urlSearchParams: URLSearchParams;
-
 	public constructor(
 		private _http: Http
-	) {
-		this.urlSearchParams = new URLSearchParams();
-	}
-
-	public setPage(v: any): void {
-		this.urlSearchParams.set('page', v);
-	}
+	) {}
 
 	public getAll(): Observable < any > {
 		return this._http
-			.get(this._url + '/housing_room', {
-				search: this.urlSearchParams
-			})
+			.get(this._url + '/housing_room')
 			.catch(this.handleError);
 	}
 
