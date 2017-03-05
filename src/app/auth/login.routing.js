@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var auth_guard_service_1 = require("./auth-guard.service");
 var auth_service_1 = require("./auth.service");
 var login_component_1 = require("./login.component");
