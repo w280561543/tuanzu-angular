@@ -3,21 +3,13 @@
 	<span class="breadcrumb-item active">租客合同</span>
 </nav>
 <table class="table table-sm table-bordered table-hover">
-	<colgroup>
-		<col width="5%" />
-		<col width="20%" />
-		<col width="20%" />
-		<col width="30%" />
-		<col width="10%" />
-		<col width="15%" />
-	</colgroup>
 	<thead class="thead-inverse">
 		<tr>
 			<th class="text-sm-center align-middle">#</th>
 			<th class="text-sm-center align-middle">编号</th>
 			<th class="text-sm-center align-middle">标题</th>
-			<th class="text-sm-center align-middle">街道</th>
-			<th class="text-sm-center align-middle">总面积</th>
+			<th class="text-sm-center align-middle" colspan="3">街道</th>
+			<th class="text-sm-center align-middle" colspan="2">总面积</th>
 			<th class="text-sm-center align-middle">操作</th>
 		</tr>
 	</thead>
@@ -26,24 +18,30 @@
 			<td class="text-sm-center align-middle"><a class="btn btn-link btn-sm" href="javascript:void(0);" (click)="page.isOpen[i]=!page.isOpen[i]"><i class="fa fa-fw" [class.fa-plus-square-o]="!page.isOpen[i]" [class.fa-minus-square-o]="page.isOpen[i]"></i></a></td>
 			<td class="text-sm-center align-middle">{{ row.number }}</td>
 			<td class="text-sm-center align-middle">{{ row.name }}</td>
-			<td class="text-sm-center align-middle">{{ row.address }}</td>
-			<td class="text-sm-center align-middle">{{ row.gross_area }} m<sup>2</sup></td>
+			<td class="text-sm-center align-middle" colspan="3">{{ row.address }}</td>
+			<td class="text-sm-center align-middle" colspan="2">{{ row.gross_area }} m<sup>2</sup></td>
 			<td><a href="javascript:void(0);" class="btn btn-sm btn-outline-primary"><i class="fa fa-fw fa-eye"></i>查看</a></td>
 		</tr>
 		<tr *ngIf="page.isOpen[i]">
 			<th class="text-sm-center align-middle">房号</th>
+			<th class="text-sm-center align-middle">租客名称</th>
+			<th class="text-sm-center align-middle">联系电话</th>
 			<th class="text-sm-center align-middle">起始日期</th>
 			<th class="text-sm-center align-middle">结束日期</th>
-			<th class="text-sm-center align-middle">价格</th>
 			<th class="text-sm-center align-middle">支付方式</th>
+			<th class="text-sm-center align-middle">价格</th>
+			<th class="text-sm-center align-middle">押金</th>
 			<th class="text-sm-center align-middle">操作</th>
 		</tr>
 		<tr *ngFor="let r of row.housing_room" [class.hidden-xs-up]="!page.isOpen[i]">
 			<td class="text-sm-center align-middle">{{ r.tabs }}房</td>
-			<td class="text-sm-center align-middle">{{ r.date_end }}</td>
+			<td class="text-sm-center align-middle"></td>
+			<td class="text-sm-center align-middle"></td>
 			<td class="text-sm-center align-middle">{{ r.date_start }}</td>
-			<td class="text-sm-center align-middle">{{ r.rental }}元/月</td>
+			<td class="text-sm-center align-middle">{{ r.date_end }}</td>
 			<td class="text-sm-center align-middle">{{ r.mode_payment }}</td>
+			<td class="text-sm-center align-middle">{{ r.rental }}元/月</td>
+			<td class="text-sm-center align-middle">{{ r.deposit }}元</td>
 			<td>
 				<!--<a href="javascript:void(0);" class="btn btn-primary btn-sm"><i class="fa fa-fw fa-eye"></i>查看</a>
 				<a href="javascript:void(0);" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-bookmark-o"></i>变更</a>-->
