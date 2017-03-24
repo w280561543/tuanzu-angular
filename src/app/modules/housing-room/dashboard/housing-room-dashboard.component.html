@@ -20,7 +20,10 @@
 			<td class="text-sm-center align-middle">{{ row.name }}</td>
 			<td class="text-sm-center align-middle" colspan="3">{{ row.address }}</td>
 			<td class="text-sm-center align-middle" colspan="2">{{ row.gross_area }} m<sup>2</sup></td>
-			<td><a href="javascript:void(0);" class="btn btn-sm btn-outline-primary"><i class="fa fa-fw fa-eye"></i>查看</a></td>
+			<td>
+				<a href="javascript:void(0);" class="btn btn-sm btn-primary"><i class="fa fa-fw fa-eye"></i>查看</a>
+				<a href="javascript:void(0);" class="btn btn-sm btn-info"><i class="fa fa-fw fa-history"></i>历史</a>
+			</td>
 		</tr>
 		<tr *ngIf="page.isOpen[i]">
 			<th class="text-sm-center align-middle">房号</th>
@@ -42,12 +45,13 @@
 			<td class="text-sm-center align-middle">{{ r.mode_payment }}</td>
 			<td class="text-sm-center align-middle">{{ r.rental }}元/月</td>
 			<td class="text-sm-center align-middle">{{ r.deposit }}元</td>
-			<td>
-				<!--<a href="javascript:void(0);" class="btn btn-primary btn-sm"><i class="fa fa-fw fa-eye"></i>查看</a>
-				<a href="javascript:void(0);" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-bookmark-o"></i>变更</a>-->
-				<a href="javascript:void(0);" class="btn btn-primary btn-sm"><i class="fa fa-fw fa-calendar-check-o"></i>预约</a>
-				<a class="btn btn-success btn-sm" routerLink="/housing-room/contract/{{ r.housing_room_id }}"><i class="fa fa-fw fa-pencil"></i>签约</a>
-				<a href="javascript:void(0);" class="btn btn-info btn-sm"><i class="fa fa-fw fa-history"></i>历史</a>
+			<td *ngIf="r.is_rent == 1">
+				<a href="javascript:void(0);" class="btn btn-sm btn-primary"><i class="fa fa-fw fa-eye"></i>查看</a>
+				<a href="javascript:void(0);" class="btn btn-sm btn-danger"><i class="fa fa-fw fa-bookmark-o"></i>变更</a>
+			</td>
+			<td *ngIf="r.is_rent == 0">
+				<a href="javascript:void(0);" class="btn btn-sm btn-primary"><i class="fa fa-fw fa-calendar-check-o"></i>预约</a>
+				<a class="btn btn-sm btn-success" routerLink="/housing-room/contract/{{ r.housing_room_id }}"><i class="fa fa-fw fa-pencil"></i>签约</a>
 			</td>
 		</tr>
 	</tbody>
