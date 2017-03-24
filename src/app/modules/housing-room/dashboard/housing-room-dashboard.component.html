@@ -5,10 +5,9 @@
 <table class="table table-sm table-bordered table-hover">
 	<colgroup>
 		<col width="5%" />
-		<col width="15%" />
-		<col width="15%" />
-		<col width="15%" />
-		<col width="25%" />
+		<col width="20%" />
+		<col width="20%" />
+		<col width="30%" />
 		<col width="10%" />
 		<col width="15%" />
 	</colgroup>
@@ -17,13 +16,43 @@
 			<th class="text-sm-center align-middle">#</th>
 			<th class="text-sm-center align-middle">编号</th>
 			<th class="text-sm-center align-middle">标题</th>
-			<th class="text-sm-center align-middle">区域</th>
 			<th class="text-sm-center align-middle">街道</th>
 			<th class="text-sm-center align-middle">总面积</th>
 			<th class="text-sm-center align-middle">操作</th>
 		</tr>
 	</thead>
-	<tbody>
-		
+	<tbody *ngFor="let row of page.rows;let i = index">
+		<tr>
+			<td class="text-sm-center align-middle"><a class="btn btn-link btn-sm" href="javascript:void(0);" (click)="page.isOpen[i]=!page.isOpen[i]"><i class="fa fa-fw" [class.fa-plus-square-o]="!page.isOpen[i]" [class.fa-minus-square-o]="page.isOpen[i]"></i></a></td>
+			<td class="text-sm-center align-middle">{{ row.number }}</td>
+			<td class="text-sm-center align-middle">{{ row.name }}</td>
+			<td class="text-sm-center align-middle">{{ row.address }}</td>
+			<td class="text-sm-center align-middle">{{ row.gross_area }} m<sup>2</sup></td>
+			<td><a href="javascript:void(0);" class="btn btn-sm btn-outline-primary"><i class="fa fa-fw fa-eye"></i>查看</a></td>
+		</tr>
+		<tr *ngIf="page.isOpen[i]">
+			<th class="text-sm-center align-middle">&nbsp;</th>
+			<th class="text-sm-center align-middle">房号</th>
+			<th class="text-sm-center align-middle">朝向</th>
+			<th class="text-sm-center align-middle">价格</th>
+			<th class="text-sm-center align-middle">面积</th>
+			<th class="text-sm-center align-middle" colspan="2">操作</th>
+		</tr>
+		<tr *ngFor="let r of row.housing_room" [class.hidden-xs-up]="!page.isOpen[i]">
+			<td>&nbsp;</td>
+			<td class="text-sm-center align-middle">{{ r.tabs }}房</td>
+			<td class="text-sm-center align-middle">&nbsp;</td>
+			<td class="text-sm-center align-middle">{{ r.rental }}元/月</td>
+			<td class="text-sm-center align-middle">&nbsp;</td>
+			<td colspan="2">&nbsp;</td>
+		</tr>
 	</tbody>
 </table>
+<div class="text-sm-center">
+	<div class="mb-1">当前:{{ page.config.currentPage }}页&nbsp;/&nbsp;总共{{ page.totalPages }}页&nbsp;|&nbsp;每页:{{ page.config.itemsPerPage }}条&nbsp;/&nbsp;总{{ page.config.totalItems }}共条</div>
+	<ul class="pagination justify-content-center mt-0 mb-0">
+		<li class="page-item" *ngIf="page.config.currentPage !== 1"  (click)="selectPage(1, $event)"><a class="page-link" href="javascript:void(0);">首页</a></li>
+		<li class="page-item" *ngFor="let pg of page.pages;" [class.active]="pg.active" (click)="selectPage(pg.number, $event)"><a class="page-link" href="javascript:void(0);">{{ pg.text }}</a></li>
+		<li class="page-item" *ngIf="page.config.currentPage !== this.page.totalPages"  (click)="selectPage(this.page.totalPages, $event)"><a class="page-link" href="javascript:void(0);">尾页</a></li>
+	</ul>
+</div>
