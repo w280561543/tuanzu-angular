@@ -1,10 +1,10 @@
-<div class="text-xs-center">
+<div class="text-center">
 	<button type="button" class="btn btn-info btn-sm" onclick="window.print();">打印</button>
 </div>
 <div class="print print-only">
 	<div class="print-content print-mb-10">
-		<h4 class="text-xs-center">www.52tuanzu.com （52团租网）</h4>
-		<h4 class="text-xs-center">入住协议</h4>
+		<h4 class="text-center">www.52tuanzu.com （52团租网）</h4>
+		<h4 class="text-center">入住协议</h4>
 		<table class="table table-bordered">
 			<tr>
 				<td rowspan="2">甲方<br />（管理方）</td>
@@ -18,16 +18,16 @@
 			</tr>
 			<tr>
 				<td>办公地址</td>
-				<td colspan="4" class="text-xs-center">广州市天河区天河北路689号光大银行大厦1006室</td>
+				<td colspan="4" class="text-center">广州市天河区天河北路689号光大银行大厦1006室</td>
 			</tr>
 			<tr>
 				<td rowspan="3">乙方<br />（使用人）</td>
 			</tr>
 			<tr>
 				<td style="">姓名</td>
-				<td>{{ data.user?.full_name }}</td>
-				<td>{{ data.user?.number_type }}</td>
-				<td style="width: 220px;">{{ data.user?.number }}</td>
+				<td>{{ data.user_info?.full_name }}</td>
+				<td>{{ data.user_info?.number_type }}</td>
+				<td style="width: 220px;">{{ data.user_info?.number }}</td>
 			</tr>
 			<tr>
 				<td>手机</td>
@@ -104,7 +104,7 @@
 	</div>
 
 	<div class="print-content print-fs-12">
-		<h4 class="text-xs-center">
+		<h4 class="text-center">
 			&nbsp;&nbsp;&nbsp;&nbsp;团租公寓入住协议一般条款
 		</h4>
 		<div>&nbsp;&nbsp;&nbsp;&nbsp;根据《团租公寓会员章程》和诚信原则，甲方将团租公寓租赁给乙方居住使用，双方就入住事宜达成如下协议：</div>
