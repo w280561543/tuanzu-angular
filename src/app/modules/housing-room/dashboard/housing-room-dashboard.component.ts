@@ -36,6 +36,7 @@ export class HousingRoomDashboardComponent implements OnInit {
 		this._housingRoomService.getAll()
 			.subscribe((r: any) => {
 				this.data = r.json().data;
+				console.log(this.data);
 				this.page.config.totalItems = this.data.length;
 				this.page.totalPages = this.calculateTotalPages(this.page.config);
 				this.changeTable();
