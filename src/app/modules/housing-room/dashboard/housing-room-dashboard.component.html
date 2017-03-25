@@ -8,11 +8,21 @@
 			<th class="text-sm-center align-middle">#</th>
 			<th class="text-sm-center align-middle">编号</th>
 			<th class="text-sm-center align-middle">标题</th>
-			<th class="text-sm-center align-middle" colspan="3">街道</th>
+			<th class="text-sm-center align-middle" colspan="3">地址</th>
 			<th class="text-sm-center align-middle" colspan="2">总面积</th>
 			<th class="text-sm-center align-middle">操作</th>
 		</tr>
 	</thead>
+	<tbody>
+		<tr>
+			<td class="text-sm-center align-middle">&nbsp;</td>
+			<td><input type="text" class="form-control form-control-sm" placeholder="编号" [(ngModel)]="filters.number" /></td>
+			<td><input type="text" class="form-control form-control-sm" placeholder="标题" [(ngModel)]="filters.name" /></td>
+			<td colspan="3"><input type="text" class="form-control form-control-sm" placeholder="租客名称" /></td>
+			<td colspan="2"><input type="text" class="form-control form-control-sm" placeholder="租客手机" /></td>
+			<td><button type="sbumit" class="btn btn-primary btn-sm" (click)="onChangeFilter()">搜索</button></td>
+		</tr>
+	</tbody>
 	<tbody *ngFor="let row of page.rows;let i = index">
 		<tr>
 			<td class="text-sm-center align-middle"><a class="btn btn-link btn-sm" href="javascript:void(0);" (click)="page.isOpen[i]=!page.isOpen[i]"><i class="fa fa-fw" [class.fa-plus-square-o]="!page.isOpen[i]" [class.fa-minus-square-o]="page.isOpen[i]"></i></a></td>
