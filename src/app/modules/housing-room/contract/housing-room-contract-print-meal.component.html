@@ -7,9 +7,9 @@
 		<h4 class="text-center">入住协议</h4>
 		<table class="table table-bordered">
 			<tr>
-				<td rowspan="2" width="200px">甲方（管理方）</td>
+				<td rowspan="2" width="140px">甲方（管理方）</td>
 				<td rowspan="2"  colspan="2" width="225px">广州团租资产管理有限公司</td>
-				<td>管理员</td>
+				<td width="60px">管理员</td>
 				<td></td>
 			</tr>
 			<tr>
@@ -18,7 +18,7 @@
 			</tr>
 			<tr>
 				<td>办公地址</td>
-				<td colspan="4" class="text-center">广州市天河区天河北路689号光大银行大厦1006室</td>
+				<td colspan="4">广州市天河区天河北路689号光大银行大厦1006室</td>
 			</tr>
 			<tr>
 				<td rowspan="3">乙方（使用人）</td>
@@ -50,18 +50,18 @@
 			</tr>
 			<tr>
 				<td>月基价</td>
-				<td>RMB:元/月</td>
+				<td>RMB:{{ data.contract?.rental }}元/月</td>
 				<td>押金</td>
 				<td colspan="3">RMB:{{ data.contract?.deposit }}元</td>
 			</tr>
 			<tr>
 				<td rowspan="2">房间使用费合计</td>
-				<td rowspan="2">RMB:{{ data.contract?.rental }}元/月</td>
+				<td rowspan="2" width="130px">RMB:{{ data.contract?.rental }}元/月</td>
 				<td>房间租金</td>
 				<td colspan="3">RMB:{{ data.contract?.rental * 0.7 }}元/月</td>
 			</tr>
 			<tr>
-				<td>家具家电租金</td>
+				<td width="110px">家具家电租金</td>
 				<td colspan="3">RMB:{{ data.contract?.rental * 0.3 }}元/月</td>
 
 			</tr>
