@@ -20,7 +20,7 @@ export class HousingRoomContractPrintComponent {
 	}
 
 }
-
+// 租客合同
 @Component({
 	moduleId: module.id,
 	selector: 'housing-room-contract-print-meal',
@@ -36,24 +36,24 @@ export class HousingRoomContractPrintMealComponent {
 		})
 	}
 }
-
+// 住客指南
 @Component({
 	moduleId: module.id,
 	selector: 'housing-room-contract-print-guide',
 	templateUrl: 'housing-room-contract-print-guide.component.html'
 })
 export class HousingRoomContractPrintGuideComponent {}
-
-@Component({
-	moduleId: module.id,
-	selector: 'housing-room-contract-print-receipt',
-	templateUrl: 'housing-room-contract-print-receipt.component.html'
-})
-export class HousingRoomContractPrintReceiptComponent {}
-
+// 水电燃气
 @Component({
 	moduleId: module.id,
 	selector: 'housing-room-contract-print-resource',
 	templateUrl: 'housing-room-contract-print-resource.component.html'
 })
 export class HousingRoomContractPrintResourceComponent {}
+// 打印账单
+@Component({
+	moduleId: module.id,
+	selector: 'housing-room-contract-print-receipt',
+	templateUrl: 'housing-room-contract-print-receipt.component.html'
+})
+export class HousingRoomContractPrintReceiptComponent {}
