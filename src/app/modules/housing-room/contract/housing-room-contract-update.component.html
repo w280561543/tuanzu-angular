@@ -6,27 +6,27 @@
 <div class="card">
 	<div class="card-header">
 		<ul class="nav nav-tabs card-header-tabs float-xs-left">
-			<li class="nav-item"><a class="nav-link" href="javascript:void(0);" [class.active]="step[3].active">4.水电燃度数</a></li>
-			<li class="nav-item"><a class="nav-link" href="javascript:void(0);" [class.active]="step[4].active">5.基本信息</a></li>
-			<li class="nav-item"><a class="nav-link" href="javascript:void(0);" [class.active]="step[5].active">6.合同变更</a></li>
+			<li class="nav-item"><a class="nav-link" href="javascript:void(0);" [class.active]="step[3].active" (click)="onActive(3)">4.水电燃度数</a></li>
+			<li class="nav-item"><a class="nav-link" href="javascript:void(0);" [class.active]="step[4].active" (click)="onActive(4)">5.基本信息</a></li>
+			<li class="nav-item"><a class="nav-link" href="javascript:void(0);" [class.active]="step[5].active" (click)="onActive(5)">6.合同变更</a></li>
 		</ul>
 	</div>
 	<div class="card-block tab-content">
 		<div class="tab-pane" [class.active]="step[3].active">
-			<form>
+			<form (ngSubmit)="submitResource()" #resourceFrom="ngForm">
 				<div class="form-group row">
 					<label class="col-form-label col-sm-3">入住时水费读数<small class="text-muted text-warning">(*必填)</small>：</label>
-					<div class="col-sm-9"><input type="text" class="form-control" required/></div>
+					<div class="col-sm-9"><input type="text" name="in_meter_water" class="form-control" required pattern="^[0-9]+(.[0-9]{1,5})?$" [(ngModel)]="resource.in_meter_water"/></div>
 				</div>
 				<div class="form-group row">
 					<label class="col-form-label col-sm-3">入住时电费读数<small class="text-muted text-warning">(*必填)</small>：</label>
-					<div class="col-sm-9"><input type="text" class="form-control" required/></div>
+					<div class="col-sm-9"><input type="text" name="in_meter_electric" class="form-control" required pattern="^[0-9]+(.[0-9]{1,5})?$" [(ngModel)]="resource.in_meter_electric"/></div>
 				</div>
 				<div class="form-group row">
 					<label class="col-form-label col-sm-3">入住时燃气费读数<small class="text-muted text-warning">(*必填)</small>：</label>
-					<div class="col-sm-9"><input type="text" class="form-control" required/></div>
+					<div class="col-sm-9"><input type="text" name="in_meter_gas" class="form-control" required pattern="^[0-9]+(.[0-9]{1,5})?$" [(ngModel)]="resource.in_meter_gas"/></div>
 				</div>
-				<button type="submit" class="btn btn-primary btn-block">提交度数</button>
+				<button type="submit" class="btn btn-primary btn-block" [disabled]="!resourceFrom.form.valid" (keydown.enter)="resourceFrom.form.valid">提交度数</button>
 			</form>
 		</div>
 
