@@ -8,7 +8,9 @@ import { HousingRoomRoutingModule } from './housing-room-routing.module';
 
 import { HousingRoomComponent }             from './housing-room.component';
 import { HousingRoomDashboardComponent }    from './dashboard/housing-room-dashboard.component';
-import { HousingRoomContractComponent }     from './contract/housing-room-contract.component';
+import { HousingRoomContractCreateComponent } from './contract/housing-room-contract-create.component';
+import { HousingRoomContractUpdateComponent } from './contract/housing-room-contract-update.component';
+import { HousingRoomContractRetrieveComponent } from './contract/housing-room-contract-retrieve.component';
 import { HousingRoomContractInfoComponent } from './contract/housing-room-contract-info.component';
 
 import { HousingRoomContractPrintComponent,
@@ -30,7 +32,9 @@ import { HousingRoomContractPrintComponent,
 	declarations: [
 		HousingRoomComponent,
 		HousingRoomDashboardComponent,
-		HousingRoomContractComponent,
+		HousingRoomContractCreateComponent,
+		HousingRoomContractUpdateComponent,
+		HousingRoomContractRetrieveComponent,
 		HousingRoomContractInfoComponent,
 		HousingRoomContractPrintComponent,
 		HousingRoomContractPrintMealComponent,
