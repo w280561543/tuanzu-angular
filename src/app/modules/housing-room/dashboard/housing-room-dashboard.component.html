@@ -16,10 +16,12 @@
 	<tbody>
 		<tr>
 			<td class="text-sm-center align-middle">&nbsp;</td>
-			<td><input type="text" class="form-control form-control-sm" placeholder="编号" [(ngModel)]="filters.number" /></td>
-			<td><input type="text" class="form-control form-control-sm" placeholder="标题" [(ngModel)]="filters.name" /></td>
-			<td colspan="3"><input type="text" class="form-control form-control-sm" placeholder="租客名称" /></td>
-			<td colspan="2"><input type="text" class="form-control form-control-sm" placeholder="租客手机" /></td>
+			<td><input type="text" class="form-control form-control-sm" placeholder="编号" [(ngModel)]="filters.number" />
+				<input type="text" class="form-control form-control-sm" placeholder="租客名称" /></td>
+			<td><input type="text" class="form-control form-control-sm" placeholder="标题" [(ngModel)]="filters.name" />
+				<input type="text" class="form-control form-control-sm" placeholder="租客手机" /></td>
+			<td colspan="3"><input type="text" class="form-control form-control-sm" placeholder="地址" /></td>
+			<td colspan="2"></td>
 			<td><button type="sbumit" class="btn btn-primary btn-sm" (click)="onChangeFilter()">搜索</button></td>
 		</tr>
 	</tbody>
