@@ -1,5 +1,82 @@
 <ol class="breadcrumb">
 	<li class="breadcrumb-item"><a routerLink="/dashboard">首页</a></li>
 	<li class="breadcrumb-item"><a routerLink="/housing-room">租客合同</a></li>
-	<li class="breadcrumb-item active">变更</li>
+	<li class="breadcrumb-item active">变更<small>({{ data.base_community?.name }}{{ data.base_community_number?.name }}-{{ data.housing?.floor }}{{ data.housing?.name }}{{ data.housing_room?.tabs }}房)</small></li>
 </ol>
+<div class="card">
+	<div class="card-header">
+		<ul class="nav nav-tabs card-header-tabs float-xs-left">
+			<li class="nav-item"><a class="nav-link" href="javascript:void(0);" [class.active]="step[3].active">4.水电燃度数</a></li>
+			<li class="nav-item"><a class="nav-link" href="javascript:void(0);" [class.active]="step[4].active">5.基本信息</a></li>
+			<li class="nav-item"><a class="nav-link" href="javascript:void(0);" [class.active]="step[5].active">6.合同变更</a></li>
+		</ul>
+	</div>
+	<div class="card-block tab-content">
+		<div class="tab-pane" [class.active]="step[3].active">
+			<form>
+				<div class="form-group row">
+					<label class="col-form-label col-sm-2">水费<small class="text-muted text-warning">(*必填)</small>：</label>
+					<div class="col-sm-10"><input type="text" class="form-control" required/></div>
+				</div>
+				<div class="form-group row">
+					<label class="col-form-label col-sm-2">电费<small class="text-muted text-warning">(*必填)</small>：</label>
+					<div class="col-sm-10"><input type="text" class="form-control" required/></div>
+				</div>
+				<div class="form-group row">
+					<label class="col-form-label col-sm-2">燃气费<small class="text-muted text-warning">(*必填)</small>：</label>
+					<div class="col-sm-10"><input type="text" class="form-control" required/></div>
+				</div>
+				<button type="submit" class="btn btn-primary btn-block">提交度数</button>
+			</form>
+		</div>
+
+		<div class="tab-pane" [class.active]="step[4].active">
+			<form>
+				<h5>租客基本信息(乙方)</h5><hr />
+				<div class="form-group row">
+					<label class="col-form-label col-sm-2">手机号<small class="text-muted text-warning">(*必填)</small>：</label>
+					<div class="col-sm-4"><input type="text" name="phone" class="form-control" placeholder="手机号" required /></div>
+					<label class="col-form-label col-sm-2">邮箱<small class="text-muted text-warning">(*必填)</small>：</label>
+					<div class="col-sm-4"><input type="text" name="email" class="form-control" placeholder="邮箱" required/></div>
+				</div>
+				
+				<hr /><h5>合同基本信息</h5><hr />
+				<div class="form-group row">
+					<label class="col-form-label col-sm-2">租金：</label>
+					<div class="col-sm-2"><input type="text" name="rental" class="form-control" disabled/></div>
+					<label class="col-form-label col-sm-2">押金<small class="text-muted text-warning">(*必填)</small>：</label>
+					<div class="col-sm-2"><input type="text" name="deposit" class="form-control" required/></div>
+					<label class="col-form-label col-sm-2">支付方式<small class="text-muted text-warning">(*必选)</small>：</label>
+					<div class="col-sm-2">
+						<select name="mode_payment" class="form-control">
+							<option value="0">请选择支付方式</option>
+							<option value="012">押零付十二</option>
+							<option value="201">押二付一</option>
+							<option value="203">押二付三</option>
+							<option value="206">押二付六</option>
+							<option value="212">押二付十二</option>
+						</select>
+					</div>
+				</div>
+				
+				<div class="form-group row">
+					<label class="col-form-label col-sm-2">租金调整<small class="text-muted text-warning">(*必填)</small>：</label>
+					<div class="col-sm-2"><input type="text" name="rental_adjust" class="form-control" required/></div>
+					<label class="col-form-label col-sm-2">管理费<small class="text-muted text-warning">(*必填)</small>：</label>
+					<div class="col-sm-2"><input type="text" name="charge_administrative" class="form-control" required/></div>
+					<label class="col-form-label col-sm-2">水电燃气费<small class="text-muted text-warning">(*必填)</small>：</label>
+					<div class="col-sm-2"><input type="text" name="charge_resource" class="form-control" required/></div>
+				</div>
+				<button type="submit" class="btn btn-primary btn-block">变更基本信息</button>
+			</form>
+		</div>
+
+		<div class="tab-pane active" [class.active]="step[5].active">
+			<button type="button" class="btn btn-success">到期</button>
+			<button type="button" class="btn btn-primary">续约</button>
+			<button type="button" class="btn btn-warning">换房</button>
+			<button type="button" class="btn btn-info">转租</button>
+			<button type="button" class="btn btn-danger">中止</button>
+		</div>
+	</div>
+</div>
