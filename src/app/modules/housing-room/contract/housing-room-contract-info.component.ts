@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { HousingRoomContractComponent } from './housing-room-contract.component';
+import { HousingRoomContractCreateComponent } from './housing-room-contract-create.component';
 import { HousingRoomContractService }   from './housing-room-contract.service';
 
 @Component({
@@ -31,7 +31,7 @@ export class HousingRoomContractInfoComponent implements OnInit {
 	};
 
 	public constructor(
-		private _housingRoomContractComponent: HousingRoomContractComponent,
+		private _housingRoomContractCreateComponent: HousingRoomContractCreateComponent,
 		private _housingRoomContractService: HousingRoomContractService
 	) {}
 
@@ -59,8 +59,8 @@ export class HousingRoomContractInfoComponent implements OnInit {
 	
 	public onNext(): void {
 		this.model['contract'].rental = parseFloat(this.model['contract'].rental);
-		this._housingRoomContractComponent.onActive(1);
-		this._housingRoomContractComponent.setModel(this.model);
+		this._housingRoomContractCreateComponent.onActive(1);
+		this._housingRoomContractCreateComponent.setModel(this.model);
 		this._housingRoomContractService.setModel(this.model);
 	}
 }

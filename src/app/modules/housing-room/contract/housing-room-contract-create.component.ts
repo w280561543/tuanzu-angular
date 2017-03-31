@@ -7,9 +7,9 @@ import { HousingRoomContractService } from './housing-room-contract.service';
 
 @Component({
 	moduleId: module.id,
-	templateUrl: 'housing-room-contract.component.html'
+	templateUrl: 'housing-room-contract-create.component.html'
 })
-export class HousingRoomContractComponent implements OnInit {
+export class HousingRoomContractCreateComponent implements OnInit {
 	private step: Array < any > = [{
 		active: true,
 	}, {

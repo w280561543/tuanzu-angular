@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { HousingRoomContractComponent } from './housing-room-contract.component';
+import { HousingRoomContractCreateComponent } from './housing-room-contract-create.component';
 import { HousingRoomContractService }   from './housing-room-contract.service';
 
 @Component({
@@ -12,11 +12,11 @@ export class HousingRoomContractPrintComponent {
 	public active: number = 1;
 	
 	public constructor(
-		private _housingRoomContractComponent: HousingRoomContractComponent
+		private _housingRoomContractCreateComponent: HousingRoomContractCreateComponent
 	) {}
 
 	public onNext(): void {
-		this._housingRoomContractComponent.onActive(2);
+		this._housingRoomContractCreateComponent.onActive(2);
 	}
 
 }
