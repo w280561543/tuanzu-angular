@@ -58,8 +58,8 @@
 			<td class="text-sm-center align-middle">{{ r.rental }}元/月</td>
 			<td class="text-sm-center align-middle">{{ r.deposit }}元</td>
 			<td *ngIf="r.is_rent == 1">
-				<a class="btn btn-sm btn-primary" routerLink="/housing-room/contract/retrieve/{{ r.housing_room_id }}"><i class="fa fa-fw fa-eye"></i>查看</a>
 				<a class="btn btn-sm btn-danger" routerLink="/housing-room/contract/update/{{ r.housing_room_id }}"><i class="fa fa-fw fa-bookmark-o"></i>变更</a>
+				<a class="btn btn-sm btn-primary" routerLink="/housing-room/contract/retrieve/{{ r.housing_room_id }}"><i class="fa fa-fw fa-eye"></i>查看</a>
 			</td>
 			<td *ngIf="r.is_rent == 0">
 				<!--<a href="javascript:void(0);" class="btn btn-sm btn-primary"><i class="fa fa-fw fa-calendar-check-o"></i>预约</a>-->
